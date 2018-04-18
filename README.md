@@ -4,7 +4,8 @@
 
 <!-- Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and/or functionality. -->
 
-The purpose of this game is to make 4 sets of thirteen cards each, with the cards in a sequence from King to Ace. There is only one suit being used for this game, and users are allowed to pick a suit they want the cards to feature. The users score is based on how long they took to create all sets.
+The purpose of this app is for users to be able to study efficiently on a specific subject they are having trouble or to brush up on old material. Users will have access to all default worksheets and the study cards in them. Once a worksheet is added to a user's workspace they will be able to create, delete and update the study cards in that particular worksheet.
+
 - Site Example 1: https://quizlet.com/
 - Site Example 2: http://www.cram.com/
 
@@ -12,6 +13,7 @@ The purpose of this game is to make 4 sets of thirteen cards each, with the card
 
 <!-- Include images of your wireframes.  -->
 ![wireframe1](images/wireframe1.jpg)
+
 ![wireframe2](images/wireframe2.jpg)
 
 ## Priority Matrix
@@ -20,11 +22,12 @@ Include a full list of features that have been prioritized based on the `Time an
 
 | Component | Priority | Estimated Time |
 | --- | :---: |  :---: |
-| Game Logic | 1 | 7hrs| 
-| Card Animation | 2 | 4hrs| 
-| Suits Creation | 3 | 3hrs| 
-| Page Layout | 4 | 6hrs| 
-| Total |  | 20hrs| 
+| App Logic | 1 | 10hrs| 
+| Database Setup | 2 | 1hrs| 
+| Routes | 3 | 3hrs| 
+| Page Layout | 4 | 8hrs| 
+| Page Design | 5 | 9hrs|
+| Total |  | 31hrs| 
 
 ![priority](images/priority.jpg)
 
@@ -63,9 +66,8 @@ The user will be able to restart the game at any time. A reset button will be lo
 ## POST MVP
 
 <!-- Include the full list of features that you are considering for POST MVP -->
-- Have the computer give the user a hint as to what they could play for their next move
-- Two suit game
-- Four suit game
+- Users will have to log in to edit their workspace
+- Logged in users will be able to create their own worksheets
 
 ## Functional Components
 
@@ -82,58 +84,3 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Game Score | 5 | 1hrs| 1hrs | 2hrs |
 | Post-MVP | 6 | 10hrs| 1hrs | 1hrs |
 | Total |  | 31hrs| 26hrs | 29hrs |
-
-
-## Helper Functions
-Helper functions should be generic enought that they can be reused in other applications. Use this section to document all helper functions that fall into this category.
-
-| Function | Description | 
-| --- | :---: |
-| randomNumber(num) | This will generate a random number from 0 to num | 
-
-## Additional Libraries
- Use this section to list all supporting libraries and thier role in the project. 
-
-## Code Snippet
-
-Use this section to include a brief code snippet of functionality that you are proud of and a brief description. 
-
-```
-  let moveHistory = [];
-
-  class Moves {
-    constructor(element, lastPlace, hideLC, hide) {
-      this.element = element;
-      this.lastPlace = lastPlace;
-      this.hideLastCard = hideLC;
-      this.hide = hide;
-    }
-    addToArray() {
-      moveHistory.push(this);
-    }
-  }
-
-  function addToMoveArray(arr1, arr2, hlc, hde) {
-    const moves = new Moves(arr1, arr2, hlc, hde);
-    moves.addToArray();
-  }
-``` 
-A move object is created and then pushed into the moveHistory array. This keeps track of all moves made in the game, so you can undo one move at a time.
-
-## jQuery Discoveries
- Use this section to list some, but not all, of the jQuery methods and\or functionality discovered while working on this project.
-
- * hasClass()
- * contents()
-
-## Change Log
- Use this section to document what changes were made and the reasoning behind those changes.  
-
-## Issues and Resolutions
- Use this section to list of all major issues encountered and their resolution.
-
- One issue I had was how long it took to test if my functions worked, i.e, checking for a full set from K to A.
-
-#### SAMPLE.....
-**ERROR**: app.js:34 Uncaught SyntaxError: Unexpected identifier                                
-**RESOLUTION**: Missing comma after first object in sources {} object
