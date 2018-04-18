@@ -18,7 +18,7 @@ The purpose of this app is for users to be able to study efficiently on a specif
 
 ## Priority Matrix
 
-Include a full list of features that have been prioritized based on the `Time and Importance` Matix. 
+Include a full list of features that have been prioritized based on the `Time and Importance` Matrix. 
 
 | Component | Priority | Estimated Time |
 | --- | :---: |  :---: |
