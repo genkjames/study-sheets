@@ -29,29 +29,22 @@ Include a full list of features that have been prioritized based on the `Time an
 | Page Design | 5 | 9hrs|
 | Total |  | 31hrs| 
 
-![priority](images/priority.jpg)
+
 
 ## App Components
 
 ### Landing Page
-<!-- What will a player see when they start your game? -->
-A player will see a welcome page that asks for a name and a suit (diamonds, hearts, etc.) of the cards they prefer when they start a game. The rules of the game will also be displayed.
+<!-- What will a user see when they start your app? -->
+A user will see a welcome page that give them tips and tricks on how to be a better learner.
 
 ### App Initialization
-<!-- What will a player see when the game is started?  -->
-When the game is started cards will be shuffled and distributed from the deck position to the playing positions on the board. There will be a reset button and undo button on the page.
+<!-- What will a user see when the app is started?  -->
+When the app is started users will be able to view all worksheets on the site, or they can navigate to the tutorial page that explains all actions they can do with the worksheets.
 
 ### Using The App
 <!-- What will be the flow of the game, what will the user be expected to do and what will the user expect from the game. -->
-Users will be able to click a card from the playing field on top of another card on the playing field, as long as the card being clicked on is one rank lower than the card it's being placed on. The goal is to try to get a sequence of 13 cards that are placed from King to Ace in less than 8 minutes. Once a sequence of 13 cards in the right order is met, that sequence is moved to one of the empty slots at the top right corner of the page. All four slots should be filled to win the game. Clicking on the deck of cards in the top left corner of the screen gives users more cards if needed. When you click the Undo button, the last move from the user will be cleared. The user will be able to click the Undo button as many times as possible, even to the start of the game, however their score will go down. The score of the user will be based on the time it took them to complete the game.
+Once the user has chosen a worksheet they can choose what type of questions they want. The types of questions available will be multiple choice, short answer and essay questions. They can choose a combination of the types or choose all of them. Users will also be able to edit their workspace by creating a new study card, or updating or deleting a study card that's already available.
 
-### Winning The Game
-<!-- What does it look like when the game ends, what determines winning or losing? -->
-Once the playing field is cleared of all cards and the deck is empty before 8 minutes, the user wins the game. If time runs out, then the user loses the game. Game status will be displayed in a pop up box. If user has won, confetti will appear on the screen.
-
-### Game Reset
-<!-- How will the user restart the game once it has been completed. -->
-The user will be able to restart the game at any time. A reset button will be located on the board.
 
 ## MVP 
 
