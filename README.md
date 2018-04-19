@@ -19,23 +19,33 @@ The purpose of this app is for users to be able to study efficiently on a specif
 ## Database Schema
 
 ### Table Name: Worksheets
+| Column Name | Data Type |
+| --- | :---: |
 | id | primary key |
 | category_id | references Categories(id) |
 
 ### Table Name: Cards
+| Column Name | Data Type |
+| --- | :---: |
 | id | primary key |
 | worksheet_id |  references Worksheets(id) |
 | option_id | references Options(id) |
 
 ### Table Name: Categories
+| Column Name | Data Type |
+| --- | :---: |
 | id | primary key |
 | category | ex) Web Development, Accounting, Business, etc. |
 
 ### Table Name: Types 
+| Column Name | Data Type |
+| --- | :---: |
 | id | primary key |
 | type_of | ex) multiple choice, short answer, etc. |
 
 ### Table Name: Options
+| Column Name | Data Type |
+| --- | :---: |
 | id | primary key |
 | card_id | references Cards(id) |
 | type_id | references Types(id) |
@@ -43,6 +53,8 @@ The purpose of this app is for users to be able to study efficiently on a specif
 | isTrue | boolean |
 
 ### Table Name: Users
+| Column Name | Data Type |
+| --- | :---: |
 | id | primary key |
 | question |  |
 | option_id | references Options(id) |
