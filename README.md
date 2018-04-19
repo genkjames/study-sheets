@@ -16,6 +16,37 @@ The purpose of this app is for users to be able to study efficiently on a specif
 
 ![wireframe2](images/wireframe2.jpg)
 
+## Database Schema
+
+### Table Name: Worksheets
+| id | primary key |
+| category_id | references Categories(id) |
+
+### Table Name: Cards
+| id | primary key |
+| worksheet_id |  references Worksheets(id) |
+| option_id | references Options(id) |
+
+### Table Name: Categories
+| id | primary key |
+| category | ex) Web Development, Accounting, Business, etc. |
+
+### Table Name: Types 
+| id | primary key |
+| type_of | ex) multiple choice, short answer, etc. |
+
+### Table Name: Options
+| id | primary key |
+| card_id | references Cards(id) |
+| type_id | references Types(id) |
+| option | possible answers to questions |
+| isTrue | boolean |
+
+### Table Name: Users
+| id | primary key |
+| question |  |
+| option_id | references Options(id) |
+
 ## Priority Matrix
 
 Include a full list of features that have been prioritized based on the `Time and Importance` Matrix. 
