@@ -1,0 +1,28 @@
+{
+  "name": "study-sheets",
+  "version": "1.0.0",
+  "description": "## Project Description",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/genkjames/study-sheets.git"
+  },
+  "author": "Genaya James",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/genkjames/study-sheets/issues"
+  },
+  "homepage": "https://github.com/genkjames/study-sheets#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.9",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.17.3",
+    "pg-promise": "^8.4.0"
+  }
+}
