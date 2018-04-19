@@ -28,6 +28,7 @@ The purpose of this app is for users to be able to study efficiently on a specif
 | Column Name | Data Type |
 | --- | :---: |
 | id | primary key |
+| question | text |
 | worksheet_id |  references Worksheets(id) |
 | option_id | references Options(id) |
 
@@ -56,7 +57,7 @@ The purpose of this app is for users to be able to study efficiently on a specif
 | Column Name | Data Type |
 | --- | :---: |
 | id | primary key |
-| question |  |
+| question | text |
 | option_id | references Options(id) |
 
 ## Priority Matrix
