@@ -22,12 +22,14 @@ The purpose of this app is for users to be able to study efficiently on a specif
 | Column Name | Data Type |
 | --- | :---: |
 | id | primary key |
+| user_id | references Users(id) |
 | category_id | references Categories(id) |
 
 ### Table Name: Cards
 | Column Name | Data Type |
 | --- | :---: |
 | id | primary key |
+| user_id | references Users(id) |
 | question | text |
 | worksheet_id |  references Worksheets(id) |
 | option_id | references Options(id) |
@@ -57,8 +59,8 @@ The purpose of this app is for users to be able to study efficiently on a specif
 | Column Name | Data Type |
 | --- | :---: |
 | id | primary key |
-| question | text |
-| option_id | references Options(id) |
+| username | text |
+| password | VARCHAR(255) |
 
 ## Priority Matrix
 
