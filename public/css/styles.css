@@ -93,6 +93,10 @@ main.wrapper {
   color: var(--darkGreen);
 }
 
+.logins {
+
+}
+
 .signup_in_container {
   position: fixed;
   top: 0;
