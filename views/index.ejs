@@ -15,26 +15,30 @@
     <p>For more tips, visit <a href="https://www.topuniversities.com/student-info/health-and-support/exam-preparation-ten-study-tips">this site</a></p>
 
     <div class="logins">
-      <button>Get Started!</button>
-      <button>Time To Study</button>
+      <button data-signval="sign_up">Get Started!</button>
+      <button data-signval="sign_in">Time To Study</button>
     </div>
   </div>
 </main>
 
 <div class="signup_in_container">
-  <form method="post" action="">
+  <form id="signin_form" method="post">
     <div>
       <label for="username">Username</label>
       <input type="text" name="username" id="username">
     </div>
-
     <div>
       <label for="password">Password</label>
       <input type="password" name="password" id="password">
     </div>
-
-    <input id="submitForm" type="submit" value="Sign In">
+    <div class="form_options">
+      <input id="submit" type="submit" value="Sign In">
+      <button id="cancel">Cancel</button>
+    </div>
   </form>
 </div>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
 
 <% include ../partials/end %>

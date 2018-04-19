@@ -131,8 +131,12 @@ input {
   font-size: 22px;
 }
 
-[type="submit"] {
-  display: block;
+.form_options {
+  margin-top: 40px;
+}
+
+.form_options > * {
+  display: inline-block;
   margin: 0 auto;
   width: 100px;
 }

@@ -19,7 +19,19 @@ app.get('/', (req, res) => {
 
 app.get('/tutorial', (req, res) => {
   res.render('tutorial');
-})
+});
+
+app.post('/tutorial', (req, res) => {
+  res.render('tutorial');
+});
+
+app.get('/workspace', (req, res) => {
+  res.render('workspace');
+});
+
+app.post('/workspace', (req, res) => {
+  res.render('workspace');
+});
 
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
