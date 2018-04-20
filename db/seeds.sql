@@ -24,7 +24,7 @@ INSERT INTO worksheets (name, subject_id)
 VALUES
 ('Computer Fundamentals', 1),
 ('Operating Systems', 1),
-('Complete The Sentences', 4);
+('Sentence Completion', 4);
 
 -- Cards
 INSERT INTO cards (question, worksheet_id)
@@ -49,7 +49,16 @@ VALUES
 ('_______ occurs when a higher-priority process needs to access a data structure that is currently being accessed by a lower-priority process.', 2),
 ('The wait-for graph scheme is not applicable to a resource allocation system with multiple instances of each resource type.', 2),
 ('A significant problem with priority scheduling algorithms is _______.', 2),
-('Rajeev failed in the examination because none of his answers were _______ to the questions asked.', 3);
+('Rajeev failed in the examination because none of his answers were _______ to the questions asked.', 3),
+('There are _______ views on the issue of giving bonus to the employees.', 3),
+('"She was sorry she didn''t attend her friend''s wedding." "Yes, she _______"', 3),
+('He behaves as if he _______ a king.', 3),
+('The dog has been _______ by the car.', 3),
+('_______ you apologize I shall punish you.', 3),
+('We _______ start now to work for our examination.', 3),
+('His boss _______ an explanation of his conduct with his colleagues.', 3),
+('The artist had to _______ a lot before _______ recognized for his talent.', 3),
+('Rama took his _______ for the wrong done to him.', 3);
 
 -- Options
 INSERT INTO options (card_id, type_id, option, isTrue)
@@ -113,5 +122,42 @@ VALUES
 (21, 1, 'allusive', false),
 (21, 1, 'revealing', false),
 (21, 1, 'pertinent', true),
-(21, 1, 'referential', false);
+(21, 1, 'referential', false),
+(22, 1, 'independent', false),
+(22, 1, 'divergent', true),
+(22, 1, 'modest', false),
+(22, 1, 'adverse', false),
+(23, 1, 'regretted she can''t have gone', false),
+(23, 1, 'was regretting she does not go', false),
+(23, 1, 'will regret she didn''t go', false),
+(23, 1, 'was regretting that she couldn''t go', true),
+(24, 1, 'was', false),
+(24, 1, 'were', true),
+(24, 1, 'has', false),
+(24, 1, 'had', false),
+(25, 1, 'run out', false),
+(25, 1, 'run over', true),
+(25, 1, 'run into', false),
+(25, 1, 'run for', false),
+(26, 1, 'Until', false),
+(26, 1, 'Unless', true),
+(26, 1, 'Till', false),
+(26, 1, 'None of these', false),
+(27, 1, 'had better', false),
+(27, 1, 'has better', false),
+(27, 1, 'are better', false),
+(27, 1, 'better', true),
+(28, 1, 'called up', false),
+(28, 1, 'called off', false),
+(28, 1, 'called for', true),
+(28, 1, 'called upon', false),
+(29, 1, 'struggle, being', true),
+(29, 1, 'toil, he', false),
+(29, 1, 'practice, performing', false),
+(29, 1, 'effort, he was', false),
+(29, 1, 'strive, the', false),
+(30, 1, 'avenge', false),
+(30, 1, 'vengeance', false),
+(30, 1, 'revenge', true),
+(30, 1, 'ravage', false);
 
