@@ -91,10 +91,11 @@ main.wrapper {
 
 .topic_stc {
   color: var(--darkGreen);
+  font-weight: 600;
 }
 
-.logins {
-
+.logins > * {
+  cursor: pointer;
 }
 
 .signup_in_container {
@@ -139,4 +140,5 @@ input {
   display: inline-block;
   margin: 0 auto;
   width: 100px;
+  cursor: pointer;
 }
