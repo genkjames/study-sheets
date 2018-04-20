@@ -130,7 +130,7 @@ main.wrapper {
   display: none;
 }
 
-form {
+form.signup {
   background: #fff;
   max-width: 500px;
   margin: 150px auto;
@@ -163,4 +163,12 @@ input {
   margin: 0 auto;
   width: 100px;
   cursor: pointer;
+}
+
+/* Worksheets page */
+.worksheet {
+  margin: 20px 0 40px;
+  padding: 20px;
+  border-left: 5px solid var(--lightGreen);
+  border-bottom: 1px solid var(--darkGreen);
 }

@@ -3,6 +3,9 @@ const path = require('path');
 const express = require('express');
 const logger = require('morgan');
 
+const worksheetsRouter = require('./routes/worksheetRouter');
+const workspaceRouter = require('./routes/workspaceRouter');
+
 const port = process.env.port || 3000;
 
 const app = express();
@@ -21,17 +24,12 @@ app.get('/tutorial', (req, res) => {
   res.render('tutorial');
 });
 
-app.get('/workspace', (req, res) => {
-  res.render('workspace');
-});
-
-app.get('/worksheets', (req, res) => {
-  res.render('worksheets');
-});
-
 app.get('/subjects', (req, res) => {
   res.render('subjects');
 });
+
+app.use('/worksheets', worksheetsRouter);
+app.use('/workspace', workspaceRouter);
 
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);

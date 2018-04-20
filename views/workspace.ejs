@@ -4,6 +4,15 @@
 
 <main class="wrapper">
   <h1>Workspace</h1>
+  <% worksheets.forEach((worksheet) => { %>
+    <div class="worksheet">
+      <h2><%= worksheet.name %></h2>
+      <p><%= worksheet.subject %></p>
+      <form action="/worksheets/<%=worksheet.id%>?_method=DELETE" method="post">
+        <button class="dwd-btn">Delete From Workspace</button>
+      </form>
+    </div>
+  <% }) %>
 </main>
 
 <% include partials/end %>

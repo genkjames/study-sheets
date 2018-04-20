@@ -23,17 +23,22 @@ CREATE TABLE types (
   type TEXT NOT NULL
 );
 
+CREATE TABLE worksheets (
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
+  subject_id INTEGER REFERENCES subjects(id)
+);
+
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   username TEXT NOT NULL,
   password_digest TEXT NOT NULL
 );
 
-CREATE TABLE worksheets (
+CREATE TABLE userworksheets (
   id SERIAL PRIMARY KEY,
-  name TEXT NOT NULL,
   user_id INTEGER REFERENCES users(id),
-  subject_id INTEGER REFERENCES subjects(id)
+  worksheet_id INTEGER REFERENCES worksheets(id)
 );
 
 CREATE TABLE cards (
@@ -50,3 +55,4 @@ CREATE TABLE options (
   option TEXT NOT NULL,
   isTrue BOOLEAN NOT NULL
 );
+
