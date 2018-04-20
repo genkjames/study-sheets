@@ -77,6 +77,28 @@ header a:not(.logo):hover {
   color: var(--darkYellow);
 }
 
+/*Navigation current page */
+
+.tutorial_container .tutorial_link {
+  color: var(--darkYellow);
+  border-bottom: 2px solid var(--darkYellow);
+}
+
+.workspace_container .workspace_link {
+  color: var(--darkYellow);
+  border-bottom: 2px solid var(--darkYellow);
+}
+
+.worksheet_container .worksheet_link {
+  color: var(--darkYellow);
+  border-bottom: 2px solid var(--darkYellow);
+}
+
+.subjects_container .subjects_link {
+  color: var(--darkYellow);
+  border-bottom: 2px solid var(--darkYellow);
+}
+
 /* Main */
 
 main.wrapper {

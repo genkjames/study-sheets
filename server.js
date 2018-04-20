@@ -21,16 +21,16 @@ app.get('/tutorial', (req, res) => {
   res.render('tutorial');
 });
 
-app.post('/tutorial', (req, res) => {
-  res.render('tutorial');
-});
-
 app.get('/workspace', (req, res) => {
   res.render('workspace');
 });
 
-app.post('/workspace', (req, res) => {
-  res.render('workspace');
+app.get('/worksheets', (req, res) => {
+  res.render('worksheets');
+});
+
+app.get('/subjects', (req, res) => {
+  res.render('subjects');
 });
 
 app.listen(port, () => {
