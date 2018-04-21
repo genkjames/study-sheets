@@ -3,14 +3,13 @@
 <% include ../partials/header %>
 
 <main class="wrapper">
-  <h1>Workspace</h1>
+  <h1 class="h-title">Workspace</h1>
   <div class="workspace">
     <div>
-      <h1>All worksheets</h1>
+      <h1 class="allw">All worksheets</h1>
       <% if(worksheets && worksheets.length > 0) { %>
         <% worksheets.forEach((worksheet) => { %>
-          <h2><%= worksheet.name %></h2>
-          <%=JSON.stringify(worksheets)%>
+          <h2 class="worksheet-name"><%= worksheet.name %></h2>
           <form action="/worksheets/<%=worksheet.id%>?_method=DELETE" method="post">
             <button>Delete From Workspace</button>
           </form>
@@ -23,7 +22,6 @@
       <% if(cards && cards.length > 0) { %>
         <div class="card">
           <h1><%=cards[id].question%></h1>
-          <p>huh</p>
         </div>
         <% if(parseInt(id) > 0) { %>
           <a href="/workspace/<%=parseInt(id)-1%>">Previous</a>
@@ -38,12 +36,12 @@
     <div>
       <% cards.forEach((card, i) => { %>
         <% if(i === parseInt(id)) { %>
-          <div class="cardLink current">
+          <div class="card-link current">
             <p><%= card.question %></p>
           </div>
         <% } else { %>
           <a href="/workspace/<%=i%>">
-            <div class="cardLink">
+            <div class="card-link">
               <p><%= card.question %></p>
             </div>
           </a>

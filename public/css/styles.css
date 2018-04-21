@@ -1,26 +1,25 @@
 :root {
-  --offWhite: #f6fae6;
-  /*rgb(246, 250, 230)*/
-  --lightYellow: #ead76c;
-  /*rgb(234, 215, 108)*/
-  --darkYellow: #d5aa19;
-  /*rgb(213, 170, 25)*/
-  --lightGreen: #9fc177;
-  /*rgb(159, 193, 119)*/
-  --darkGreen: #81a65f;
-  /*rgb(129, 166, 95)*/
+  --offWhite: #f6fae6;    /*rgb(246, 250, 230)*/
+  --lightYellow: #ead76c; /*rgb(234, 215, 108)*/
+  --darkYellow: #d5aa19;  /*rgb(213, 170, 25)*/
+  --lightGreen: #9fc177;  /*rgb(159, 193, 119)*/
+  --darkGreen: #81a65f;   /*rgb(129, 166, 95)*/
+  --dark: rgb(34, 34, 34);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
   text-decoration: none;
 }
 
 body {
-  font-size: 16px;
+  font: 16px "Montserrat", sans-serif;
+}
+
+a:active {
+  color: var(--darkGreen);
 }
 
 /* Set size of window size */
@@ -42,6 +41,7 @@ header {
   line-height: 50px;
   background: gold;
   background: var(--offWhite);
+  background: var(--dark);
 }
 
 header a {
@@ -52,20 +52,21 @@ header a:not(.logo) {
   font-size: 18px;
   letter-spacing: 1px;
   color: #000;
+  color: #fff;
   padding: 0 30px;
   border: 2px solid transparent;
   transition: .3s;
 }
 
 header a:not(.logo):hover {
-  color: var(--darkYellow);
-  border-bottom: 2px solid var(--darkYellow);
+  color: var(--lightYellow);
+  border-bottom: 2px solid var(--offWhite);
 }
 
 .logo, .capital {
   color: black;
-  font-size: 35px;
-  font-family: "Gaegu", cursive;
+  color: #fff;
+  font: 35px/50px "Gaegu", cursive;
   transition: .3s;
 }
 
@@ -79,24 +80,24 @@ header a:not(.logo):hover {
 
 /*Navigation current page */
 
-.tutorial_container .tutorial_link {
-  color: var(--darkYellow);
-  border-bottom: 2px solid var(--darkYellow);
+.tutorial-container .tutorial-link {
+  color: var(--lightYellow);
+  border-bottom: 2px solid var(--offWhite);
 }
 
-.workspace_container .workspace_link {
-  color: var(--darkYellow);
-  border-bottom: 2px solid var(--darkYellow);
+.workspace-container .workspace-link {
+  color: var(--lightYellow);
+  border-bottom: 2px solid var(--offWhite);
 }
 
-.worksheet_container .worksheet_link {
-  color: var(--darkYellow);
-  border-bottom: 2px solid var(--darkYellow);
+.worksheet-container .worksheet-link {
+  color: var(--lightYellow);
+  border-bottom: 2px solid var(--offWhite);
 }
 
-.subjects_container .subjects_link {
-  color: var(--darkYellow);
-  border-bottom: 2px solid var(--darkYellow);
+.subjects-container .subjects-link {
+  color: var(--lightYellow);
+  border-bottom: 2px solid var(--offWhite);
 }
 
 /* Main */
@@ -111,7 +112,7 @@ main.wrapper {
   margin-bottom: 20px;
 }
 
-.topic_stc {
+.topic-stc {
   color: var(--darkGreen);
   font-weight: 600;
 }
@@ -120,7 +121,7 @@ main.wrapper {
   cursor: pointer;
 }
 
-.signup_in_container {
+.signup-in-container {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -154,11 +155,11 @@ input {
   font-size: 22px;
 }
 
-.form_options {
+.form-options {
   margin-top: 40px;
 }
 
-.form_options > * {
+.form-options > * {
   display: inline-block;
   margin: 0 auto;
   width: 100px;
@@ -185,17 +186,105 @@ input {
   padding: 20px;
 }
 
+/* Workspace Worksheets List */
 .workspace > div:nth-of-type(1) {
   width: 250px;
-  font-size: 10px;
-  background: rgb(34, 34, 34);
+  background: var(--dark);
   color: #fff;
+  overflow: scroll;
 }
 
+.allw {
+  font-size: 22px;
+  color: var(--darkGreen);
+  margin-bottom: 20px;
+}
+
+.worksheet-name {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.w-name {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* Displayed Card */
 .workspace > div:nth-of-type(2) {
   width: calc(100% - 500px);
+  padding: 20px;
 }
 
+.card-display {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 90px 0 30px;
+}
+
+.card {
+  width: 100%;
+  margin-bottom: 30px;
+  background: rgba(246, 250, 230, .5);
+  border: 3px solid var(--dark);
+  padding: 30px;
+  border-radius: 5px;
+  font-size: 14px;
+  box-shadow: 1px 1px 5px var(--darkGreen), -1px 1px 10px var(--dark);
+}
+
+.answer > p {
+  background: rgba(34, 34, 34, .9);
+  box-shadow: 1px 1px 1px var(--darkGreen), -1px 1px 10px var(--darkGreen);
+  text-align: center;
+  border-radius: 50%;
+  border: 1px solid black;
+  width: 170px;
+  height: 170px;
+  margin: 40px auto 0;
+  font: 100px/170px "Montserrat", sans-serif;
+  color: var(--lightGreen);
+}
+
+.wsp-link, .not-active {
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.wsp-link {
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 10px;
+  background: var(--darkYellow);
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 2px;
+  transition: .2s;
+}
+
+.wsp-link:hover {
+  border: 2px solid var(--darkYellow);
+  background: #fff;
+  color: var(--darkYellow);
+}
+
+.not-active {
+  border: 2px solid var(--dark);
+  background: rgb(0, 0, 0, .5);
+}
+
+.not-active:active {
+  color: #000;
+}
+
+.pn-buttons > * {
+  display: inline-block;
+  margin: 0px 30px 0 0;
+}
+
+/* Card Links */
 .workspace > div:nth-of-type(3) {
   width: 250px;
   height: 100%;
@@ -204,22 +293,42 @@ input {
   overflow: scroll;
 }
 
-.cardLink {
+.card-link {
   margin: 20px 10px;
   padding: 10px;
   background: #fff;
+  border: 3px solid transparent;
+  font-weight: 600;
+  color: #000;
+  box-shadow: .5px 1px 5px var(--dark), -1px 1px 10px var(--dark);
+  transition: .3s;
+}
+
+.card-link:hover {
+  border: 3px solid var(--dark);
+}
+
+.card-link .w-name {
+  font-size: 8px;
+  margin-bottom: 5px;
 }
 
 .current {
-  border: 3px solid rgb(34, 34, 34);
+  border: 3px solid var(--dark);
 }
 
-.cardLink::after {
+.card-link::after {
+  content: "?";
   display: block;
-  padding: 20px;
-  content: "";
+  width: 30px;
+  height: 30px;
+  margin: 15px auto 5px;
+  padding: 10px;
+  background: rgba(34, 34, 34, .9);
+  box-shadow: 1px 1px 1px var(--darkGreen), -1px 1px 10px var(--darkGreen);
   text-align: center;
+  border-radius: 50%;
+  border: 1px solid #000;
+  font: 30px/30px "Montserrat", sans-serif;
+  color: var(--darkYellow);
 }
-
-
-
