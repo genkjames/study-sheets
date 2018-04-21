@@ -15,8 +15,16 @@
       <% if(cards && cards.length > 0) { %>
         <div class="card-display">
           <div class="card">
-            <p class="w-name"><%=displayedCard.name %></p>
-            <h1><%=displayedCard.question%></h1>
+            <p class="w-name"><%=displayedCard.name%><span class="bar"></span><span class="type"><%=displayedCard.type%></span></p>
+            <h1 class="question"><%=displayedCard.question%></h1>
+            <% if (displayedCard.type === 'multiple choice') { %>
+              <%const letters = ['a', 'b', 'c', 'd', 'e'] %>
+              <% options.forEach((option, i) => { %>
+                <div class="option">
+                  <p><span class="option-letter"><%=letters[i]%></span> <%= option.option %></p>
+                </div>
+              <% }) %>
+            <% } %>
             <div class="answer"><p>?</p></div>
           </div>
           <div class="pn-buttons">

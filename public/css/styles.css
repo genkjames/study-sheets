@@ -214,12 +214,26 @@ input {
 .workspace > div:nth-of-type(2) {
   width: calc(100% - 500px);
   padding: 20px;
+  overflow: scroll;
+}
+
+.bar {
+  position: relative;
+  top: -5px;
+  border: 1px solid var(--dark);
+  display: inline-block;
+  margin: 0 20px;
+  width: 30px;
+}
+
+.type {
+  color: var(--darkGreen);
 }
 
 .card-display {
   max-width: 600px;
   margin: 0 auto;
-  padding: 90px 0 30px;
+  padding: 50px 0 30px;
 }
 
 .card {
@@ -231,6 +245,10 @@ input {
   border-radius: 5px;
   font-size: 14px;
   box-shadow: 1px 1px 5px var(--darkGreen), -1px 1px 10px var(--dark);
+}
+
+.question {
+  font-size: 21px;
 }
 
 .answer > p {
