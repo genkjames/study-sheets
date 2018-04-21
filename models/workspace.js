@@ -12,7 +12,6 @@ function getUserWorksheets() {
 }
 
 function getUserCards() {
-  console.log('hnlse');
   return db.any(`
     SELECT * FROM cards
     JOIN userworksheets
