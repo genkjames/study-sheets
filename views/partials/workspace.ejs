@@ -1,43 +1,52 @@
 <main class="wrapper">
   <h1>Workspace</h1>
   <div class="workspace">
-
     <div>
-      <h1>All worksheets</h1>
+      <h1 class="allw">All worksheets</h1>
       <% if(worksheets && worksheets.length > 0) { %>
         <% worksheets.forEach((worksheet) => { %>
-          <h2><%= worksheet.name %></h2>
+          <p class="worksheet-name"><%= worksheet.name %></p>
         <% }) %>
       <% } %>
     </div>
 
     <div>
-      <a href="/workspace/edit">Edit workspace</a>
+      <a class="wsp-link" href="/workspace/edit">Edit workspace</a>
       <% if(cards && cards.length > 0) { %>
-        <div class="card">
-          <h1><%=cards[id].question%></h1>
-          <p>huh</p>
+        <div class="card-display">
+          <div class="card">
+            <p class="w-name"><%=displayedCard.name %></p>
+            <h1><%=displayedCard.question%></h1>
+            <div class="answer"><p>?</p></div>
+          </div>
+          <div class="pn-buttons">
+            <% if(parseInt(id) > 1) { %>
+              <a class="wsp-link" href="/workspace/<%=parseInt(id)-1%>">Previous</a>
+            <% } else { %>
+              <a class="not-active">Previous</a>
+            <% } %>
+            <% if(parseInt(id) < cards.length) { %>
+              <a class="wsp-link" href="/workspace/<%=parseInt(id)+1%>">Next</a>
+            <% } else { %>
+              <a class="not-active">Next</a>
+            <% } %>
+          </div>
         </div>
-        <% if(parseInt(id) > 0) { %>
-          <a href="/workspace/<%=parseInt(id)-1%>">Previous</a>
-        <% } %>
-
-        <% if(parseInt(id) < cards.length-1) { %>
-          <a href="/workspace/<%=parseInt(id)+1%>">Next</a>
-        <% } %>
       <% } %>
     </div>
 
     <div>
       <% cards.forEach((card, i) => { %>
-        <% if(i === parseInt(id)) { %>
-          <div class="cardLink current">
+        <% if(displayedCard.id === card.id) { %>
+          <div class="card-link current">
+            <p class="w-name"><%=card.name %></p>
             <p><%= card.question %></p>
           </div>
         <% } else { %>
-          <a href="/workspace/<%=i%>">
-            <div class="cardLink">
-              <p><%= card.question %></p>
+          <a href="/workspace/<%=card.id%>">
+            <div class="card-link">
+              <p class="w-name"><%=card.name %></p>
+              <p><%= card.question.substring(0, 60) %>...</p>
             </div>
           </a>
         <% } %>
