@@ -207,13 +207,13 @@ input {
 
 .w-name {
   font-size: 18px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 /* Displayed Card */
 .workspace > div:nth-of-type(2) {
   width: calc(100% - 500px);
-  padding: 20px;
+  padding: 30px 20px 10px;
   overflow: scroll;
 }
 
@@ -240,7 +240,7 @@ input {
   width: 100%;
   margin-bottom: 30px;
   background: rgba(246, 250, 230, .5);
-  border: 3px solid var(--dark);
+  border: 2px solid var(--dark);
   padding: 30px;
   border-radius: 5px;
   font-size: 14px;
@@ -248,7 +248,39 @@ input {
 }
 
 .question {
-  font-size: 21px;
+  font-size: 22px;
+}
+
+.mc-options {
+  margin: 18px 0 0;
+}
+
+.option-letter {
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--darkGreen);
+  margin: 0 20px 0 0;
+}
+
+.option {
+  margin: 8px 0;
+  font-size: 18px;
+}
+
+h1.option {
+  font-size: 22px;
+}
+
+.a-container {
+  font-size: 20px;
+}
+
+.hide {
+  display: none;
+}
+
+.answer {
+  cursor: pointer;
 }
 
 .answer > p {
@@ -289,8 +321,8 @@ input {
 }
 
 .not-active {
-  border: 2px solid var(--dark);
-  background: rgb(0, 0, 0, .5);
+  border: 2px solid transparent;
+  background: rgba(0, 0, 0, .5);
 }
 
 .not-active:active {

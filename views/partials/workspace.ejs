@@ -1,6 +1,7 @@
 <main class="wrapper">
   <h1>Workspace</h1>
   <div class="workspace">
+    <!-- Displays worksheets in workspace -->
     <div>
       <h1 class="allw">All worksheets</h1>
       <% if(worksheets && worksheets.length > 0) { %>
@@ -10,21 +11,43 @@
       <% } %>
     </div>
 
+    <!-- Display container -->
     <div>
       <a class="wsp-link" href="/workspace/edit">Edit workspace</a>
       <% if(cards && cards.length > 0) { %>
         <div class="card-display">
           <div class="card">
             <p class="w-name"><%=displayedCard.name%><span class="bar"></span><span class="type"><%=displayedCard.type%></span></p>
-            <h1 class="question"><%=displayedCard.question%></h1>
-            <% if (displayedCard.type === 'multiple choice') { %>
+
+            <!-- Question container -->
+            <div class="q-container">
+              <h1 class="question"><%=displayedCard.question%></h1>
               <%const letters = ['a', 'b', 'c', 'd', 'e'] %>
-              <% options.forEach((option, i) => { %>
-                <div class="option">
-                  <p><span class="option-letter"><%=letters[i]%></span> <%= option.option %></p>
-                </div>
-              <% }) %>
-            <% } %>
+              <% let ans, letter;%>
+
+              <div class="mc-options">
+                <% if (displayedCard.type === 'multiple choice') { %>
+                  <% options.forEach((option, i) => { %>
+                    <% if (option.istrue === true) { %>
+                      <% letter = i %>
+                      <% ans = option.option %>
+                    <% } %>
+                    <div class="option">
+                      <p><span class="option-letter"><%=letters[i]%>.</span> <%= option.option %></p>
+                    </div>
+                  <% }) %>
+                <% } %>
+              </div>
+            </div>
+
+            <!-- Answer container -->
+            <div class="a-container hide">
+              <% if (displayedCard.type === 'multiple choice') { %>
+                <h1 class="option"><span class="option-letter"><%= letters[letter] %>.</span> <%= ans %></h1>
+              <% } else { %>
+                <h1 class="option"><%= options[0].option %></h1>
+              <% } %>
+            </div>
             <div class="answer"><p>?</p></div>
           </div>
           <div class="pn-buttons">
@@ -35,6 +58,7 @@
               <% } %>
             <% }) %>
 
+            <!-- Buttons -->
             <% if(cards[cc-1]) { %>
               <% if(cards[0].id !== cards[cc].id) { %>
                 <a id="next" class="wsp-link" href="/workspace/<%=cards[cc-1].id%>">Previous</a>
@@ -55,6 +79,7 @@
       <% } %>
     </div>
 
+    <!-- Card Links -->
     <div>
       <% cards.forEach((card, i) => { %>
         <% if(displayedCard.id === card.id) { %>
@@ -74,3 +99,5 @@
     </div>
   </div>
 </main>
+
+<% include script %>

@@ -53,6 +53,6 @@ CREATE TABLE options (
   card_id INTEGER REFERENCES cards(id),
   type_id INTEGER REFERENCES types(id),
   option TEXT NOT NULL,
-  isTrue BOOLEAN NOT NULL
+  istrue BOOLEAN NOT NULL
 );
 

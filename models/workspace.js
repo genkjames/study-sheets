@@ -1,16 +1,5 @@
 const db = require('../config/connection');
 
-// function getUserWorksheets() {
-//   return db.any(`
-//     SELECT userworksheets.id, userworksheets.worksheet_id, subjects.subject, worksheets.name
-//     FROM userworksheets
-//     JOIN worksheets
-//     ON worksheets.id = userworksheets.worksheet_id
-//     JOIN subjects
-//     ON subjects.id = worksheets.subject_id
-//   `);
-// }
-
 function getUserWorksheets() {
   return db.any(`
     SELECT usw.id, usw.worksheet_id, s.subject, w.name

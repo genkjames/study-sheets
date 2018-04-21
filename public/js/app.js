@@ -4,6 +4,7 @@ $(document).ready(function() {
   function init() {
     signInButtons();
     cancelForm();
+    answerToggle();
   }
 
   function setUpAction(submitValue, formAction) {
@@ -31,5 +32,15 @@ $(document).ready(function() {
       e.preventDefault();
       $('.signup_in_container').css('display', 'none');
     });
+  }
+
+  function answerToggle() {
+    const $answer = $('.answer');
+    const $ans = $('.a-container');
+    const $ques = $('.q-container');
+    $answer.on('click', function() {
+      $ans.toggleClass('hide');
+      $ques.toggleClass('hide');
+    })
   }
 });
