@@ -102,7 +102,7 @@ header a:not(.logo):hover {
 /* Main */
 
 main.wrapper {
-  padding: 50px 30px;
+  padding: 50px 30px 0;
 }
 
 /* Landing page */
