@@ -42,10 +42,14 @@ function getUserCards() {
 
 function getDisplayedCard(id) {
   return db.one(`
-    SELECT c.id, c.user_id, c.question, c.worksheet_id, w.name
+    SELECT DISTINCT c.id, c.user_id, c.question, c.worksheet_id, w.name, t.type
     FROM cards c
     JOIN worksheets w
     ON c.worksheet_id = w.id
+    JOIN options o
+    ON o.card_id = c.id
+    JOIN types t
+    ON t.id = o.type_id
     WHERE c.id = $1
   `, id);
 }

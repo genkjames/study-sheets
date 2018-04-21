@@ -8,13 +8,18 @@ function seeUserWorksheets(req, res) {
 }
 
 function seeUserCard(req, res) {
-  res.render('workspace/show', {
-    worksheets: res.locals.worksheets,
-    cards: res.locals.cards,
-    id: res.locals.id,
-    options: res.locals.options,
-    displayedCard: res.locals.card
-  })
+  if(res.locals.cards.map(x => x.id).includes(parseInt(req.params.id))) {
+    res.render('workspace/show', {
+      worksheets: res.locals.worksheets,
+      cards: res.locals.cards,
+      id: res.locals.id,
+      options: res.locals.options,
+      displayedCard: res.locals.card
+    })
+  }
+  else {
+    res.redirect('/workspace');
+  }
 }
 
 function redirectWorkspace(req, res) {

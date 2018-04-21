@@ -20,13 +20,25 @@
             <div class="answer"><p>?</p></div>
           </div>
           <div class="pn-buttons">
-            <% if(parseInt(id) > 1) { %>
-              <a class="wsp-link" href="/workspace/<%=parseInt(id)-1%>">Previous</a>
+            <% let cc;%>
+            <% cards.forEach((card, i) => { %>
+              <% if (displayedCard.id === card.id) { %>
+                <% cc = i%>
+              <% } %>
+            <% }) %>
+
+            <% if(cards[cc-1]) { %>
+              <% if(cards[0].id !== cards[cc].id) { %>
+                <a id="next" class="wsp-link" href="/workspace/<%=cards[cc-1].id%>">Previous</a>
+              <% } %>
             <% } else { %>
               <a class="not-active">Previous</a>
             <% } %>
-            <% if(parseInt(id) < cards.length) { %>
-              <a class="wsp-link" href="/workspace/<%=parseInt(id)+1%>">Next</a>
+
+            <% if(cards[cc+1]) { %>
+              <% if(cards[cards.length-1].id !== cards[cc].id) { %>
+                <a id="next" class="wsp-link" href="/workspace/<%=cards[cc+1].id%>">Next</a>
+              <% } %>
             <% } else { %>
               <a class="not-active">Next</a>
             <% } %>
