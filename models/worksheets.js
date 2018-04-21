@@ -12,13 +12,6 @@ function getAllWorksheets() {
   `);
 }
 
-// function getOneWorksheet(id) {
-//   return db.one(`
-//     SELECT * FROM worksheets
-//     WHERE id = $1
-//   `, id);
-// }
-
 function addToUserWorksheet(id) {
   return db.one(`
     INSERT INTO userworksheets (worksheet_id)
@@ -27,7 +20,17 @@ function addToUserWorksheet(id) {
   `, id);
 }
 
+function deleteUserWorksheet(id) {
+  console.log(id);
+  return db.one(`
+    DELETE FROM userworksheets
+    WHERE id = $1
+    RETURNING *
+  `, id);
+}
+
 module.exports = {
   getAllWorksheets,
-  addToUserWorksheet
+  addToUserWorksheet,
+  deleteUserWorksheet
 }

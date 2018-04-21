@@ -1,0 +1,42 @@
+<main class="wrapper">
+  <h1>Workspace</h1>
+  <div class="workspace">
+
+    <div>
+      <h1>All worksheets</h1>
+      <% worksheets.forEach((worksheet) => { %>
+          <h2><%= worksheet.name %></h2>
+      <% }) %>
+    </div>
+
+    <div>
+      <div class="card">
+        <h1><%=cards[id].question%></h1>
+        <p>huh</p>
+      </div>
+      <% if(parseInt(id) > 0) { %>
+        <a href="/workspace/<%=parseInt(id)-1%>">Previous</a>
+      <% } %>
+
+      <% if(parseInt(id) < cards.length-1) { %>
+        <a href="/workspace/<%=parseInt(id)+1%>">Next</a>
+      <% } %>
+    </div>
+
+    <div>
+      <% cards.forEach((card, i) => { %>
+        <% if(i === parseInt(id)) { %>
+          <div class="cardLink current">
+            <p><%= card.question %></p>
+          </div>
+        <% } else { %>
+          <a href="/workspace/<%=i%>">
+            <div class="cardLink">
+              <p><%= card.question %></p>
+            </div>
+          </a>
+        <% } %>
+      <% }) %>
+    </div>
+  </div>
+</main>

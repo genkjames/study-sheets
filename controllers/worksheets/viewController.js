@@ -5,7 +5,6 @@ function seeAllWorksheets(req, res) {
 }
 
 function seeOneWorksheet(req, res) {
-  console.log('here');
   res.redirect('/worksheets');
 }
 

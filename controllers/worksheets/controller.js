@@ -22,7 +22,19 @@ function addToUserWorksheet(req, res, next) {
   })
 }
 
+function deleteUserWorksheet(req, res, next) {
+  worksheetsDb.deleteUserWorksheet(req.params.id)
+  .then(data => {
+    res.locals.worksheet = data;
+    next();
+  })
+  .catch(err => {
+    next(err);
+  });
+}
+
 module.exports = {
   getAllWorksheets,
-  addToUserWorksheet
+  addToUserWorksheet,
+  deleteUserWorksheet
 }

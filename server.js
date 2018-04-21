@@ -2,6 +2,7 @@ const path = require('path');
 
 const express = require('express');
 const logger = require('morgan');
+const methodOverride = require('method-override');
 
 const worksheetsRouter = require('./routes/worksheetRouter');
 const workspaceRouter = require('./routes/workspaceRouter');
@@ -15,6 +16,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(logger('dev'));
+app.use(methodOverride('_method'));
 
 app.get('/', (req, res) => {
   res.render('index');
