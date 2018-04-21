@@ -200,20 +200,18 @@ input {
   width: 250px;
   height: 100%;
   font-size: 10px;
-  background: rgb(34, 34, 34);
-  border-left: 2px solid rgb(34, 34, 34);
+  background: var(--darkGreen);
   overflow: scroll;
 }
 
 .cardLink {
-  border: 1px solid rgb(34, 34, 34);
   margin: 20px 10px;
   padding: 10px;
   background: #fff;
 }
 
 .current {
-  border: 3px solid var(--darkGreen);
+  border: 3px solid rgb(34, 34, 34);
 }
 
 .cardLink::after {

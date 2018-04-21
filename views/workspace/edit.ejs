@@ -1,12 +1,19 @@
+<% include ../partials/boilerplate %>
+<body class="workspace_container">
+<% include ../partials/header %>
+
 <main class="wrapper">
   <h1>Workspace</h1>
   <div class="workspace">
-
     <div>
       <h1>All worksheets</h1>
       <% if(worksheets && worksheets.length > 0) { %>
         <% worksheets.forEach((worksheet) => { %>
           <h2><%= worksheet.name %></h2>
+          <%=JSON.stringify(worksheets)%>
+          <form action="/worksheets/<%=worksheet.id%>?_method=DELETE" method="post">
+            <button>Delete From Workspace</button>
+          </form>
         <% }) %>
       <% } %>
     </div>
@@ -45,3 +52,5 @@
     </div>
   </div>
 </main>
+
+<% include ../partials/end %>

@@ -6,7 +6,7 @@ function seeUserWorksheets(req, res) {
 }
 
 function seeUserCard(req, res) {
-  res.render('workspace', {
+  res.render('workspace/show', {
     worksheets: res.locals.worksheets,
     cards: res.locals.cards,
     id: res.locals.id
@@ -14,11 +14,19 @@ function seeUserCard(req, res) {
 }
 
 function redirectWorkspace(req, res) {
-  res.redirect('workspace');
+  res.redirect('/workspace/edit');
+}
+
+function seeEdited(req, res) {
+  res.render('workspace/edit', {
+    worksheets: res.locals.worksheets,
+    cards: res.locals.cards
+  })
 }
 
 module.exports = {
   seeUserWorksheets,
   seeUserCard,
-  redirectWorkspace
+  redirectWorkspace,
+  seeEdited
 }
