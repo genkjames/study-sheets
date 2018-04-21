@@ -2,7 +2,7 @@ const workspaceDb = require('../../models/workspace');
 
 function getUserWorksheets(req, res, next) {
   if(req.params.id === undefined) {
-    req.params.id = 0;
+    req.params.id = 1;
   }
   workspaceDb.getUserWorksheets()
   .then(data => {
@@ -26,7 +26,32 @@ function getUserCards(req, res, next) {
   })
 }
 
+function getOptions(req, res, next) {
+  workspaceDb.getOptions(req.params.id)
+  .then(data => {
+    res.locals.options = data;
+    next();
+  })
+  .catch(err => {
+    next(err);
+  });
+}
+
+function getDisplayedCard(req, res, next) {
+  workspaceDb.getDisplayedCard(req.params.id)
+  .then(data => {
+    res.locals.card = data;
+    next();
+  })
+  .catch(err => {
+    next(err);
+  });
+
+}
+
 module.exports = {
   getUserWorksheets,
-  getUserCards
+  getUserCards,
+  getOptions,
+  getDisplayedCard
 }

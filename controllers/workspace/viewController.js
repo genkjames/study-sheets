@@ -1,7 +1,9 @@
 function seeUserWorksheets(req, res) {
   res.render('workspace/index', {
     worksheets: res.locals.worksheets,
-    cards: res.locals.cards
+    cards: res.locals.cards,
+    options: res.locals.options,
+    displayedCard: res.locals.card
   });
 }
 
@@ -9,7 +11,9 @@ function seeUserCard(req, res) {
   res.render('workspace/show', {
     worksheets: res.locals.worksheets,
     cards: res.locals.cards,
-    id: res.locals.id
+    id: res.locals.id,
+    options: res.locals.options,
+    displayedCard: res.locals.card
   })
 }
 
