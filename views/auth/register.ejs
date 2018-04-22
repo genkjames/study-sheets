@@ -1,0 +1,26 @@
+<% include ../partials/boilerplate %>
+<body class="workspace_container">
+<% include ../partials/header %>
+<% include ../partials/headerend %>
+
+<div class="signup-in">
+  <form class="signup" action="/register" method="post">
+    <div>
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" required>
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" required>
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" required>
+    </div>
+    <div class="form-options">
+      <input id="submit" type="submit" value="Sign In">
+    </div>
+  </form>
+</div>
+
+<% include ../partials/end %>

@@ -1,6 +1,7 @@
 <% include partials/boilerplate %>
 <body>
 <% include partials/header %>
+<% include partials/headerend %>
 
 <main class="wrapper">
   <div class="home-img"><img src=""></div>
@@ -17,28 +18,11 @@
     <p>For more tips, <a href="https://www.topuniversities.com/student-info/health-and-support/exam-preparation-ten-study-tips" target="_blank">click here</a></p>
 
     <div class="logins">
-      <button data-signval="sign-up">Get Started!</button>
-      <button data-signval="sign-in">Time To Study</button>
+      <a href="/register">Get Started!</a>
+      <a href="/login">Time To Study</a>
     </div>
   </div>
 </main>
-
-<div class="signup-in-container">
-  <form id="signin-form" class="signup" method="post">
-    <div>
-      <label for="username">Username</label>
-      <input type="text" name="username" id="username">
-    </div>
-    <div>
-      <label for="password">Password</label>
-      <input type="password" name="password" id="password">
-    </div>
-    <div class="form-options">
-      <input id="submit" type="submit" value="Sign In">
-      <button id="cancel">Cancel</button>
-    </div>
-  </form>
-</div>
 
 <% include partials/script %>
 <% include partials/end %>
