@@ -121,21 +121,16 @@ main.wrapper {
   cursor: pointer;
 }
 
-.signup-in-container {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: none;
+.signup-in {
+  max-width: 500px;
+  margin: 100px auto 0;
+  border: 1px solid #000;
+  padding: 50px 30px;
 }
 
 form.signup {
   background: #fff;
-  max-width: 500px;
-  margin: 150px auto;
-  padding: 50px;
+  max-width: inherit;
   border-radius: 2px;
 }
 

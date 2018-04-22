@@ -2,9 +2,9 @@ $(document).ready(function() {
   init();
 
   function init() {
-    signInButtons();
-    cancelForm();
-    answerToggle();
+    // signInButtons();
+    // cancelForm();
+    // answerToggle();
     nxtBtn();
   }
 

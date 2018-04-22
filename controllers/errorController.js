@@ -5,6 +5,11 @@ function sendError(err, req, res, next) {
   })
 }
 
+function authError(err, req, res, next) {
+  res.render('auth/login')
+}
+
 module.exports = {
-  sendError
+  sendError,
+  authError
 }
