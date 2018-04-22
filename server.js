@@ -3,6 +3,7 @@ const path = require('path');
 const express = require('express');
 const logger = require('morgan');
 const methodOverride = require('method-override');
+const bodyParser = require('body-parser');
 
 const worksheetsRouter = require('./routes/worksheetRouter');
 const workspaceRouter = require('./routes/workspaceRouter');
@@ -17,6 +18,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(logger('dev'));
 app.use(methodOverride('_method'));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
   res.render('index');
