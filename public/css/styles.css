@@ -175,19 +175,21 @@ input {
 }
 
 /* Workspace */
-.workspace {
+.workspace,
+.workspace-edit {
   margin-top: 50px;
   height: 700px;
   display: flex;
   border: 2px solid #000;
 }
 
-.workspace > div {
+.workspace > div, .workspace-edit > div {
   padding: 20px;
 }
 
 /* Workspace Worksheets List */
-.workspace > div:nth-of-type(1) {
+.workspace > div:nth-of-type(1),
+.workspace-edit > div:nth-of-type(1) {
   width: 250px;
   background: var(--dark);
   color: #fff;
@@ -381,4 +383,36 @@ h1.option {
   border: 1px solid #000;
   font: 30px/30px "Montserrat", sans-serif;
   color: var(--darkYellow);
+}
+
+/* Edit container */
+.workspace-edit > div:nth-of-type(2) {
+  width: calc(100% - 250px);
+  padding: 30px 20px 10px;
+  overflow: scroll;
+}
+
+.worksheet-drop {
+  height: 70px;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #fff;
+  position: relative;
+}
+
+.drop {
+  font-size: 13px;
+  width: 170px;
+  padding: 8px 0;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: var(--darkGreen);
+  color: var(--offWhite);
+  border: 1px solid var(--darkGreen);
+}
+
+.drop:hover {
+  background: var(--lightGreen);
+  border: 1px solid var(--lightGreen);
 }

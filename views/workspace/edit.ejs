@@ -4,51 +4,23 @@
 
 <main class="wrapper">
   <h1 class="h-title">Workspace</h1>
-  <div class="workspace">
+  <div class="workspace-edit">
     <div>
       <h1 class="allw">All worksheets</h1>
       <% if(worksheets && worksheets.length > 0) { %>
         <% worksheets.forEach((worksheet) => { %>
-          <h2 class="worksheet-name"><%= worksheet.name %></h2>
-          <form action="/worksheets/<%=worksheet.id%>?_method=DELETE" method="post">
-            <button>Delete From Workspace</button>
-          </form>
+          <div class="worksheet-drop">
+            <h2 class="worksheet-name"><%= worksheet.name %></h2>
+            <form action="/worksheets/<%=worksheet.id%>?_method=DELETE" method="post">
+              <button class="drop">Delete From Workspace</button>
+            </form>
+          </div>
         <% }) %>
       <% } %>
     </div>
 
     <div>
       <a class="wsp-link" href="/workspace/">Back to workspace</a>
-      <% if(cards && cards.length > 0) { %>
-        <div class="card">
-          <h1><%=cards[id].question%></h1>
-        </div>
-        <% if(parseInt(id) > 0) { %>
-          <a href="/workspace/<%=parseInt(id)-1%>">Previous</a>
-        <% } %>
-
-        <% if(parseInt(id) < cards.length-1) { %>
-          <a href="/workspace/<%=parseInt(id)+1%>">Next</a>
-        <% } %>
-      <% } %>
-    </div>
-
-    <div>
-      <% cards.forEach((card, i) => { %>
-        <% if(i === parseInt(id)) { %>
-          <div class="card-link current">
-            <p><%= card.question %></p>
-          </div>
-        <% } else { %>
-          <a href="/workspace/<%=i%>">
-            <div class="card-link">
-              <p><%= card.question %></p>
-            </div>
-          </a>
-        <% } %>
-      <% }) %>
     </div>
   </div>
 </main>
-
-<% include ../partials/end %>

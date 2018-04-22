@@ -20,12 +20,16 @@ function getOptions(id) {
 
 function getUserCards() {
   return db.any(`
-    SELECT c.id, c.user_id, c.question, c.worksheet_id, w.name
+    SELECT DISTINCT c.id, c.user_id, c.question, c.worksheet_id, w.name, t.type
     FROM cards c
     JOIN userworksheets usw
     ON c.worksheet_id = usw.worksheet_id
     JOIN worksheets w
     ON c.worksheet_id = w.id
+    JOIN options o
+    ON o.card_id = c.id
+    JOIN types t
+    ON t.id = o.type_id
   `);
 }
 

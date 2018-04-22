@@ -1,9 +1,6 @@
 const workspaceDb = require('../../models/workspace');
 
 function getUserWorksheets(req, res, next) {
-  if(req.params.id === undefined) {
-    req.params.id = 1;
-  }
   workspaceDb.getUserWorksheets()
   .then(data => {
     res.locals.worksheets = data;
@@ -27,6 +24,13 @@ function getUserCards(req, res, next) {
 }
 
 function getOptions(req, res, next) {
+  if (req.params.id === undefined) {
+    if (res.locals.cards[0]) {
+      req.params.id = res.locals.cards[0].id;
+    } else {
+      req.params.id = 1;
+    }
+  }
   workspaceDb.getOptions(req.params.id)
   .then(data => {
     res.locals.options = data;
