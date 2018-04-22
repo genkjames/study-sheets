@@ -29,15 +29,17 @@
         <% if (cards && cards.length > 0) { %>
           <% cards.forEach((card) => { %>
             <div class="card-edit">
-              <p><%=card.name %></p>
+              <p class="edit-ws"><%=card.name %></p>
               <p class="qa-line"><span class="edit-s">Question: </span><%= card.question %></p>
-
-              <p class="qa-line"><span class="edit-s">Answer: </span><%= card.question %></p>
-
+              <% options.forEach((option) => { %>
+                <% if(option.card_id === card.id) { %>
+                  <p class="qa-line"><span class="edit-s">Answer: </span><%= option.option %></p>
+                <% } %>
+              <% }) %>
               <div class="update-delete">
-                <a class="update" href="/">Update</a>
+                <a class="update" href="/workspace/update/<%=card.id%>">Update</a>
                 <form action="/workspace/<%=card.id%>?_method=DELETE" method="post">
-                  <button>Delete</button>
+                  <button class="delete">Delete</button>
                 </form>
               </div>
             </div>

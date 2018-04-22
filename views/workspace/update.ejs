@@ -1,0 +1,29 @@
+<% include ../partials/boilerplate %>
+<body>
+<% include ../partials/header %>
+<% include ../partials/logout %>
+<% include ../partials/headerend %>
+
+<main>
+  <form action="/workspace/<%=id%>?_method=PUT" method="post">
+    <div>
+      <label for="question">Question</label>
+      <textarea id="question" name="question">
+        <%=card.question%>
+      </textarea>
+    </div>
+    <div>
+      <label for="answer">Answer</label>
+      <textarea id="answer" name="option">
+        <%=option.option%>
+      </textarea>
+    </div>
+
+    <input type="submit" value="Update Card">
+  </form>
+</main>
+
+<%= JSON.stringify(card) %>
+<%= JSON.stringify(option) %>
+<%= JSON.stringify(id)%>
+<% include ../partials/end %>

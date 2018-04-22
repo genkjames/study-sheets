@@ -112,6 +112,41 @@ function deleteUserCard(id) {
   `, id);
 }
 
+function getUpdateOption(id) {
+  return db.one(`
+    SELECT * FROM options
+    WHERE card_id = $1
+    AND istrue = true
+  `, id);
+}
+
+function updateCard(question) {
+  return db.one(`
+    UPDATE cards
+    SET question = $/question/
+    WHERE id = $/id/
+    RETURNING *
+  `, question);
+}
+
+function updateOption(option) {
+  return db.one(`
+    UPDATE options
+    SET option = $/option/
+    WHERE card_id = $/card_id/
+    AND istrue = true
+    RETURNING *
+  `, option);
+}
+
+function isByUser(id) {
+  return db.one(`
+    SELECT * FROM cards
+    WHERE user_id = $/user_id/
+    AND id = $/id/
+  `, id);
+}
+
 module.exports = {
   getUserWorksheets,
   getOptions,
@@ -123,5 +158,9 @@ module.exports = {
   createNewCard,
   createNewOptions,
   deleteOptions,
-  deleteUserCard
+  deleteUserCard,
+  getUpdateOption,
+  updateCard,
+  updateOption,
+  isByUser
 }

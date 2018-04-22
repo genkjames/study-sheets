@@ -160,6 +160,62 @@ function deleteUserCard(req, res, next) {
   })
 }
 
+function getUpdateOption(req, res, next) {
+  workspaceDb.getUpdateOption(req.params.id)
+  .then(data => {
+    res.locals.option = data;
+    next();
+  })
+  .catch(err => {
+    next(err);
+  })
+}
+
+function updateCard(req, res, next) {
+  req.body.id = req.params.id;
+  console.log('update card');
+  console.log(req.body);
+  workspaceDb.updateCard(req.body)
+  .then(data => {
+    res.locals.card = data;
+    next();
+  })
+  .catch(err => {
+    next(err);
+  })
+}
+
+function updateOption(req, res, next) {
+  req.body.card_id = req.params.id;
+  console.log('update option');
+  console.log(req.body);
+  workspaceDb.updateOption(req.body)
+  .then(data => {
+    res.locals.option = data;
+    next();
+  })
+  .catch(err => {
+    next(err);
+  })
+}
+
+function isByUser(req, res, next) {
+  const id = {
+    user_id: req.session.user.id,
+    id: req.params.id
+  }
+  workspaceDb.isByUser(id)
+  .then(data => {
+    console.log(data);
+    res.locals.card = data;
+    console.log('inside');
+    next();
+  })
+  .catch(err => {
+    res.redirect('/workspace');
+  })
+}
+
 module.exports = {
   getUserWorksheets,
   getUserCards,
@@ -171,5 +227,9 @@ module.exports = {
   createNewCard,
   createNewOptions,
   deleteOptions,
-  deleteUserCard
+  deleteUserCard,
+  getUpdateOption,
+  updateCard,
+  updateOption,
+  isByUser
 }

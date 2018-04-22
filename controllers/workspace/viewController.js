@@ -41,10 +41,19 @@ function newCardForm(req, res) {
   });
 }
 
+function getUpdateForm(req, res) {
+  res.render('workspace/update', {
+    id: req.params.id,
+    card: res.locals.card,
+    option: res.locals.option
+  });
+}
+
 module.exports = {
   seeUserWorksheets,
   seeUserCard,
   redirectWorkspace,
   seeEdited,
-  newCardForm
+  newCardForm,
+  getUpdateForm
 }

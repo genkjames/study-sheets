@@ -438,12 +438,16 @@ h1.option {
   color: var(--darkGreen);
 }
 
+.edit-ws {
+  font-size: 12px;
+}
+
 .update-delete {
   display: flex;
   justify-content: space-around;
 }
 
-.update-delete > * {
+.update, .delete {
   margin: 20px 0 0;
   display: inline-block;
   text-align: center;
@@ -453,7 +457,7 @@ h1.option {
 }
 
 .update {
-  background: var(--darkYellow);
+  background: var(--dark);
 }
 
 .update:hover {
@@ -461,7 +465,11 @@ h1.option {
 }
 
 .delete {
-  background: var(--darkRed);
+  border: none;
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 1px;
+  background: var(--dark);
 }
 
 .delete:hover {
