@@ -1,5 +1,5 @@
 <% include ../partials/boilerplate %>
-<body class="workspace_container">
+<body class="workspace-container">
 <% include ../partials/header %>
 <% include ../partials/logout %>
 <% include ../partials/headerend %>
@@ -24,8 +24,33 @@
     <div>
       <a class="wsp-link" href="/workspace/">Back to workspace</a>
       <a class="wsp-link" href="/workspace/new">Create New Study Card</a>
+
+      <div class="created-cards">
+        <% if (cards && cards.length > 0) { %>
+          <% cards.forEach((card) => { %>
+            <div class="card-edit">
+              <p><%=card.name %></p>
+              <p class="qa-line"><span class="edit-s">Question: </span><%= card.question %></p>
+
+              <p class="qa-line"><span class="edit-s">Answer: </span><%= card.question %></p>
+
+              <div class="update-delete">
+                <a class="update" href="/">Update</a>
+                <form action="/workspace/<%=card.id%>?_method=DELETE" method="post">
+                  <button>Delete</button>
+                </form>
+              </div>
+            </div>
+          <% }) %>
+        <% } %>
+      </div>
     </div>
   </div>
 </main>
 
+<%= JSON.stringify(worksheets)%>
+<p>Hello</p>
+<%= JSON.stringify(options) %>
+<p>Hello</p>
+<%= JSON.stringify(cards)%>
 <% include ../partials/end %>

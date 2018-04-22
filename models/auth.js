@@ -9,7 +9,6 @@ function registerUser(user) {
 }
 
 function findUser(uname) {
-  console.log(uname);
   return db.one(`
     SELECT * FROM users
     WHERE username = $1

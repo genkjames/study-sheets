@@ -1,7 +1,7 @@
 const worksheetsDb = require('../../models/worksheets');
 
 function getAllWorksheets(req, res, next) {
-  worksheetsDb.getAllWorksheets()
+  worksheetsDb.getAllWorksheets(req.session.user.id)
   .then(data => {
     res.locals.worksheets = data;
     next();
@@ -12,7 +12,11 @@ function getAllWorksheets(req, res, next) {
 }
 
 function addToUserWorksheet(req, res, next) {
-  worksheetsDb.addToUserWorksheet(req.params.id)
+  const ids = {
+    user_id: req.session.user.id,
+    worksheet_id: req.params.id
+  }
+  worksheetsDb.addToUserWorksheet(ids)
   .then(data => {
     res.locals.worksheet = data;
     next();

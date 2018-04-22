@@ -1,7 +1,7 @@
 const workspaceDb = require('../../models/workspace');
 
 function getUserWorksheets(req, res, next) {
-  workspaceDb.getUserWorksheets()
+  workspaceDb.getUserWorksheets(req.session.user.id)
   .then(data => {
     res.locals.worksheets = data;
     res.locals.id = req.params.id;
@@ -13,7 +13,7 @@ function getUserWorksheets(req, res, next) {
 }
 
 function getUserCards(req, res, next) {
-  workspaceDb.getUserCards(res.locals.worksheets)
+  workspaceDb.getUserCards(req.session.user.id)
   .then(data => {
     res.locals.cards = data;
     next();
@@ -41,6 +41,17 @@ function getOptions(req, res, next) {
   });
 }
 
+function getEditedOptions(req, res, next) {
+  workspaceDb.getEditedOptions(req.session.user.id)
+  .then(data => {
+    res.locals.options = data;
+    next();
+  })
+  .catch(err => {
+    next(err);
+  })
+}
+
 function getDisplayedCard(req, res, next) {
   workspaceDb.getDisplayedCard(req.params.id)
   .then(data => {
@@ -63,13 +74,22 @@ function getAllTypes(req, res, next) {
   })
 }
 
+function getCreatedCards(req, res, next) {
+  workspaceDb.getCreatedCards(req.session.user.id)
+  .then(data => {
+    res.locals.cards = data;
+    next();
+  })
+  .catch(err => {
+    next(err);
+  })
+}
+
 function createNewCard(req, res, next) {
-  console.log(req.body);
+  req.body.user_id = req.session.user.id;
   workspaceDb.createNewCard(req.body)
   .then(data => {
-    console.log(data);
     res.locals.card = data;
-    console.log(req.body);
     next();
   })
   .catch(err => {
@@ -120,12 +140,36 @@ function createNewOptions(req, res, next) {
   }
 }
 
+function deleteOptions(req, res, next) {
+  workspaceDb.deleteOptions(req.params.id)
+  .then(data => {
+    next();
+  })
+  .catch(err => {
+    next(err);
+  })
+}
+
+function deleteUserCard(req, res, next) {
+  workspaceDb.deleteUserCard(req.params.id)
+  .then(data => {
+    next();
+  })
+  .catch(err => {
+    next(err);
+  })
+}
+
 module.exports = {
   getUserWorksheets,
   getUserCards,
   getOptions,
+  getEditedOptions,
   getDisplayedCard,
   getAllTypes,
+  getCreatedCards,
   createNewCard,
-  createNewOptions
+  createNewOptions,
+  deleteOptions,
+  deleteUserCard
 }

@@ -2,7 +2,8 @@
 
 -- Categories
 
-INSERT INTO subjects (subject)
+INSERT INTO subjects
+(subject)
 VALUES
 ('Computer Science'),
 ('Accounting'),
@@ -13,21 +14,24 @@ VALUES
 
 -- Types
 
-INSERT INTO types (type)
+INSERT INTO types
+(type)
 VALUES
 ('multiple choice'),
 ('short answer'),
 ('true/false');
 
 -- Worksheets
-INSERT INTO worksheets (name, subject_id)
+INSERT INTO worksheets
+(name, subject_id)
 VALUES
 ('Computer Fundamentals', 1),
 ('Operating Systems', 1),
 ('Sentence Completion', 4);
 
 -- Cards
-INSERT INTO cards (question, worksheet_id)
+INSERT INTO cards
+(question, worksheet_id)
 VALUES
 ('Which of the following languages is more suited to a structured program?', 1),
 ('A computer assisted method for the recording and analyzing of existing or hypothetical systems is', 1),
@@ -61,7 +65,8 @@ VALUES
 ('Rama took his _______ for the wrong done to him.', 3);
 
 -- Options
-INSERT INTO options (card_id, type_id, option, isTrue)
+INSERT INTO options
+(card_id, type_id, option, isTrue)
 VALUES
 (1, 1, 'PL/1', false),
 (1, 1, 'FORTRAN', false),
@@ -161,3 +166,7 @@ VALUES
 (30, 1, 'revenge', true),
 (30, 1, 'ravage', false);
 
+INSERT INTO users
+(username, email, password_digest)
+VALUES
+('gjames', 'g@m.co', '$2b$12$pTfh9Aol7LBLhSX29jXyPOhHw65VR.ovW/mkqqmuEtGoFiVMjnhIy');

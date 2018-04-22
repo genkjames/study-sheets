@@ -1,23 +1,24 @@
 const db = require('../config/connection');
 
-function getAllWorksheets() {
+function getAllWorksheets(id) {
   return db.any(`
-    SELECT worksheets.name, worksheets.id, subjects.subject
-    FROM worksheets
-    JOIN subjects
-    ON worksheets.subject_id = subjects.id
-    LEFT JOIN userworksheets
-    ON worksheets.id = userworksheets.worksheet_id
-    WHERE userworksheets.worksheet_id IS NULL
-  `);
+    SELECT w.name, w.id, s.subject
+    FROM worksheets w
+    JOIN subjects s
+    ON w.subject_id = s.id
+    LEFT JOIN userworksheets usw
+    ON w.id = usw.worksheet_id
+    WHERE usw.worksheet_id IS NULL
+    OR usw.user_id != $1
+  `, id);
 }
 
-function addToUserWorksheet(id) {
+function addToUserWorksheet(ids) {
   return db.one(`
-    INSERT INTO userworksheets (worksheet_id)
-    VALUES ($1)
+    INSERT INTO userworksheets (user_id, worksheet_id)
+    VALUES ($/user_id/, $/worksheet_id/)
     RETURNING *
-  `, id);
+  `, ids);
 }
 
 function deleteUserWorksheet(id) {

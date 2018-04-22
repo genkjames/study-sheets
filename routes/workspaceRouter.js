@@ -10,12 +10,13 @@ workspaceRouter.route('/')
   .post(workSpaceC.createNewCard, workSpaceC.createNewOptions, workSpaceVC.redirectWorkspace, error.sendError)
 
 workspaceRouter.route('/edit')
-  .get(ac.isLoggedIn, workSpaceC.getUserWorksheets, workSpaceC.getUserCards, workSpaceVC.seeEdited, error.sendError)
+  .get(ac.isLoggedIn, workSpaceC.getUserWorksheets, workSpaceC.getCreatedCards, workSpaceC.getEditedOptions, workSpaceVC.seeEdited, error.sendError)
 
 workspaceRouter.route('/new')
-  .get(ac.isLoggedIn, workSpaceC.getUserWorksheets, workSpaceC.getAllTypes, workSpaceVC.newCardForm)
+  .get(ac.isLoggedIn, workSpaceC.getUserWorksheets, workSpaceC.getAllTypes, workSpaceVC.newCardForm, error.sendError)
 
 workspaceRouter.route('/:id')
   .get(ac.isLoggedIn, workSpaceC.getUserWorksheets, workSpaceC.getUserCards, workSpaceC.getOptions, workSpaceC.getDisplayedCard, workSpaceVC.seeUserCard, error.sendError)
+  .delete(workSpaceC.deleteOptions, workSpaceC.deleteUserCard, workSpaceVC.redirectWorkspace, error.sendError)
 
 module.exports = workspaceRouter;

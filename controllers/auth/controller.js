@@ -28,7 +28,6 @@ function findUser(req, res, next) {
       }
     }
     req.session.user = user;
-    console.log(req.session);
     next();
   })
   .catch(err => {

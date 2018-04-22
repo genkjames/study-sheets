@@ -29,7 +29,8 @@ function redirectWorkspace(req, res) {
 function seeEdited(req, res) {
   res.render('workspace/edit', {
     worksheets: res.locals.worksheets,
-    cards: res.locals.cards
+    cards: res.locals.cards,
+    options: res.locals.options
   })
 }
 

@@ -4,6 +4,8 @@
   --darkYellow: #d5aa19;  /*rgb(213, 170, 25)*/
   --lightGreen: #9fc177;  /*rgb(159, 193, 119)*/
   --darkGreen: #81a65f;   /*rgb(129, 166, 95)*/
+  --darkRed: #a80000;     /*rgb(168, 0, 0)*/
+  --lightRed: rgb(168, 0, 0, 0.8);
   --dark: rgb(34, 34, 34);
 }
 
@@ -409,4 +411,59 @@ h1.option {
 .drop:hover {
   background: var(--lightGreen);
   border: 1px solid var(--lightGreen);
+}
+
+.created-cards {
+  margin: 50px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-edit {
+  border: 1px solid var(--dark);
+  border-radius: 2px;
+  box-shadow: 1px 1px 1px var(--darkGreen), -1px 1px 10px var(--darkGreen);
+  width: 30%;
+  margin: 1.66%;
+  padding: 20px;
+}
+
+.qa-line {
+  margin: 10px 0 15px;
+  font-size: 18px;
+}
+
+.edit-s {
+  font-weight: 600;
+  color: var(--darkGreen);
+}
+
+.update-delete {
+  display: flex;
+  justify-content: space-around;
+}
+
+.update-delete > * {
+  margin: 20px 0 0;
+  display: inline-block;
+  text-align: center;
+  width: 100px;
+  padding: 10px;
+  color: #fff;
+}
+
+.update {
+  background: var(--darkYellow);
+}
+
+.update:hover {
+  background: var(--lightYellow);
+}
+
+.delete {
+  background: var(--darkRed);
+}
+
+.delete:hover {
+  background: var(--lightRed);
 }
