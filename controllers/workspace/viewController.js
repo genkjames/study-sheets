@@ -33,9 +33,17 @@ function seeEdited(req, res) {
   })
 }
 
+function newCardForm(req, res) {
+  res.render('workspace/new', {
+    worksheets: res.locals.worksheets,
+    types: res.locals.types
+  });
+}
+
 module.exports = {
   seeUserWorksheets,
   seeUserCard,
   redirectWorkspace,
-  seeEdited
+  seeEdited,
+  newCardForm
 }

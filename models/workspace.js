@@ -47,9 +47,35 @@ function getDisplayedCard(id) {
   `, id);
 }
 
+function getAllTypes() {
+  return db.any(`
+    SELECT * FROM types
+  `);
+}
+
+function createNewCard(card) {
+  return db.one(`
+    INSERT INTO cards (question, worksheet_id)
+    VALUES ($/question/, $/worksheet_id/)
+    RETURNING *
+  `, card);
+}
+
+function createNewOptions(option) {
+  console.log('why');
+  return db.one(`
+    INSERT INTO options (card_id, type_id, option, istrue)
+    VALUES ($/card_id/, $/type_id/, $/option/, $/istrue/)
+    RETURNING *
+  `, option);
+}
+
 module.exports = {
   getUserWorksheets,
   getOptions,
   getUserCards,
-  getDisplayedCard
+  getDisplayedCard,
+  getAllTypes,
+  createNewCard,
+  createNewOptions
 }

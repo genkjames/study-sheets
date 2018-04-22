@@ -5,11 +5,12 @@ $(document).ready(function() {
     signInButtons();
     cancelForm();
     answerToggle();
+    nxtBtn();
   }
 
   function setUpAction(submitValue, formAction) {
     const $submit = $('#submit');
-    const $signInForm = $('#signin_form');
+    const $signInForm = $('#signin-form');
     $submit.val(submitValue);
     $signInForm.attr("action", formAction);
   }
@@ -17,12 +18,12 @@ $(document).ready(function() {
   function signInButtons() {
     const $signInButtons = $('.logins button');
     $signInButtons.on('click', function() {
-      if($(this).data('signval') === 'sign_up') {
+      if($(this).data('signval') === 'sign-up') {
         setUpAction('Sign Up', '/tutorial');
       } else {
         setUpAction('Sign In', '/workspace');
       }
-      $('.signup_in_container').css('display', 'block');
+      $('.signup-in-container').css('display', 'block');
     });
   }
 
@@ -30,8 +31,14 @@ $(document).ready(function() {
     const $cancel = $('#cancel');
       $cancel.on('click', (e) => {
       e.preventDefault();
-      $('.signup_in_container').css('display', 'none');
+      $('.signup-in-container').css('display', 'none');
     });
+  }
+
+  function toggleHide(arr) {
+    for(let i = 0; i < arr.length; i++) {
+      arr[i].toggleClass('hide');
+    }
   }
 
   function answerToggle() {
@@ -39,8 +46,22 @@ $(document).ready(function() {
     const $ans = $('.a-container');
     const $ques = $('.q-container');
     $answer.on('click', function() {
-      $ans.toggleClass('hide');
-      $ques.toggleClass('hide');
+      toggleHide([$ans, $ques]);
     })
+  }
+
+  function nxtBtn() {
+    const $nxt = $('#nxt');
+    $nxt.on('click', function() {
+      if ($('#type').val() === '1') {
+        $('.mc-container').toggleClass('hide');
+      } else if ($('#type').val() === '2'){
+        $('.answer-value').toggleClass('hide');
+      } else {
+        $('.trfl').toggleClass('hide');
+      }
+      $nxt.off('click');
+      toggleHide([$('.part1'), $('.sbt'), $nxt]);
+    });
   }
 });
