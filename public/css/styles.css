@@ -254,7 +254,12 @@ select {
   border: none;
 }
 
-.worksheet button:hover {
+.in-works {
+  opacity: .3;
+  outline: none;
+}
+
+.worksheet .awd-btn:hover {
   background: var(--lightGreen);
 }
 

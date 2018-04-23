@@ -12,9 +12,13 @@
         <div>
           <h2><%= worksheet.name %></h2>
           <p><%= worksheet.subject %></p>
-          <form action="/worksheets/<%=worksheet.id%>" method="post">
-            <button class="awd-btn">Add to Workspace</button>
-          </form>
+          <% if (uid === worksheet.user_id) { %>
+            <button class="in-works">In Workspace</button>
+          <% } else { %>
+            <form action="/worksheets/<%=worksheet.id%>" method="post">
+              <button class="awd-btn">Add to Workspace</button>
+            </form>
+          <% } %>
         </div>
       </div>
     <% }) %>

@@ -1,6 +1,7 @@
 function seeAllWorksheets(req, res) {
   res.render('worksheets/index', {
-    worksheets: res.locals.worksheets
+    worksheets: res.locals.worksheets,
+    uid: req.session.user.id
   });
 }
 

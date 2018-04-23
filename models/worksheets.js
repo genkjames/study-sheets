@@ -2,14 +2,12 @@ const db = require('../config/connection');
 
 function getAllWorksheets(id) {
   return db.any(`
-    SELECT w.name, w.id, s.subject
+    SELECT w.name, w.id, s.subject, usw.user_id
     FROM worksheets w
     JOIN subjects s
     ON w.subject_id = s.id
-    LEFT JOIN userworksheets usw
+    FULL JOIN userworksheets usw
     ON w.id = usw.worksheet_id
-    WHERE usw.worksheet_id IS NULL
-    OR usw.user_id != $1
   `, id);
 }
 
@@ -50,30 +48,15 @@ function deleteUserCards(card) {
   `, card);
 }
 
-function getAllWorksheets(id) {
-  return db.any(`
-    SELECT w.name, w.id, s.subject
-    FROM worksheets w
-    JOIN subjects s
-    ON w.subject_id = s.id
-    LEFT JOIN userworksheets usw
-    ON w.id = usw.worksheet_id
-    WHERE usw.worksheet_id IS NULL
-    OR usw.user_id != $1
-  `, id);
-}
-
 function getSubjectWorksheets(subject) {
   return db.any(`
-    SELECT w.name, w.id, s.subject
+    SELECT w.name, w.id, s.subject, usw.user_id
     FROM worksheets w
     JOIN subjects s
     ON w.subject_id = s.id
-    LEFT JOIN userworksheets usw
+    FULL JOIN userworksheets usw
     ON w.id = usw.worksheet_id
-    WHERE usw.worksheet_id IS NULL
-    OR usw.user_id != $/user_id/
-    AND w.subject_id = $/subject_id/
+    WHERE w.subject_id = $/subject_id/
   `, subject);
 }
 
