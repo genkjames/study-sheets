@@ -21,7 +21,7 @@
 
             <!-- Question container -->
             <div class="q-container">
-              <h1 class="question"><%=displayedCard.question%></h1>
+              <h1 class="question"><%- displayedCard.question %></h1>
               <%const letters = ['a', 'b', 'c', 'd', 'e'] %>
               <% let ans, letter;%>
 
@@ -33,7 +33,7 @@
                       <% ans = option.option %>
                     <% } %>
                     <div class="option">
-                      <p><span class="option-letter"><%=letters[i]%>.</span> <%= option.option %></p>
+                      <p><span class="option-letter"><%=letters[i]%>.</span> <%- option.option %></p>
                     </div>
                   <% }) %>
                 <% } %>
@@ -43,9 +43,9 @@
             <!-- Answer container -->
             <div class="a-container hide">
               <% if (displayedCard.type === 'multiple choice') { %>
-                <h1 class="option"><span class="option-letter"><%= letters[letter] %>.</span> <%= ans %></h1>
+                <h1 class="option"><span class="option-letter"><%= letters[letter] %>.</span> <%- ans %></h1>
               <% } else { %>
-                <h1 class="option"><%= options[0].option %></h1>
+                <h1 class="option"><%- options[0].option %></h1>
               <% } %>
             </div>
             <div class="answer"><p>?</p></div>
@@ -61,7 +61,7 @@
             <!-- Buttons -->
             <% if(cards[cc-1]) { %>
               <% if(cards[0].id !== cards[cc].id) { %>
-                <a id="next" class="wsp-link" href="/workspace/<%=cards[cc-1].id%>">Previous</a>
+                <a id="prev" class="wsp-link" href="/workspace/<%=cards[cc-1].id%>">Previous</a>
               <% } %>
             <% } else { %>
               <a class="not-active">Previous</a>
@@ -85,13 +85,13 @@
         <% if(displayedCard.id === card.id) { %>
           <div class="card-link current">
             <p class="w-name"><%=card.name %></p>
-            <p><%= card.question %></p>
+            <p><%- card.question %></p>
           </div>
         <% } else { %>
           <a href="/workspace/<%=card.id%>">
             <div class="card-link">
               <p class="w-name"><%=card.name %></p>
-              <p><%= card.question.substring(0, 60) %>...</p>
+              <p><%- card.question.substring(0, 60) %>...</p>
             </div>
           </a>
         <% } %>
@@ -99,5 +99,3 @@
     </div>
   </div>
 </main>
-
-<% include script %>
