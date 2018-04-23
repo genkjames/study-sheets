@@ -1,7 +1,6 @@
 const wkdb = require('../../models/worksheets');
 
 function getAllWorksheets(req, res, next) {
-  console.log('hi');
   wkdb.getAllWorksheets(req.session.user.id)
   .then(data => {
     res.locals.worksheets = data;
@@ -28,7 +27,6 @@ function addToUserWorksheet(req, res, next) {
 }
 
 function deleteUserWorksheet(req, res, next) {
-  console.log(req.params.id);
   wkdb.deleteUserWorksheet(req.params.id)
   .then(data => {
     res.locals.worksheet = data;
@@ -74,12 +72,9 @@ function getSubjectWorksheets(req, res, next) {
     user_id: req.session.user.id,
     subject_id: req.params.id
   }
-  console.log('subject worshts');
   wkdb.getSubjectWorksheets(ids)
   .then(data => {
     res.locals.worksheets = data;
-    console.log('the data');
-    console.log(data);
     next();
   })
   .catch(err => {

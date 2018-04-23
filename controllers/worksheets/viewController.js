@@ -1,5 +1,4 @@
 function seeAllWorksheets(req, res) {
-  console.log('see work');
   res.render('worksheets/index', {
     worksheets: res.locals.worksheets
   });

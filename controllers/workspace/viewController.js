@@ -1,10 +1,10 @@
 function seeUserWorksheets(req, res) {
-  console.log('see user worksheets');
   res.render('workspace/index', {
     worksheets: res.locals.worksheets,
     cards: res.locals.cards,
     options: res.locals.options,
-    displayedCard: res.locals.card
+    displayedCard: res.locals.card,
+    uname: req.session.user.username
   });
 }
 
