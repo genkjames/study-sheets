@@ -47,9 +47,21 @@ function logout(req, res, next) {
   req.session.destroy(err => next(err));
 }
 
+function setStatus(req, res, next) {
+  if (req.session.user) {
+    res.locals.status = 'Log Out';
+    res.locals.url = '/login/out';
+  } else {
+    res.locals.status = 'Log In';
+    res.locals.url = '/login';
+  }
+  return next();
+}
+
 module.exports = {
   registerUser,
   findUser,
   logout,
-  isLoggedIn
+  isLoggedIn,
+  setStatus
 }

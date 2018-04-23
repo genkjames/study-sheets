@@ -35,8 +35,12 @@ app.use(session({
   saveUninitialized: false
 }));
 
-app.get('/', (req, res) => {
-  res.render('index');
+app.get('/', ac.setStatus, (req, res) => {
+
+  res.render('index', {
+    status: res.locals.status,
+    url: res.locals.url
+  });
 });
 
 app.use('/register', registerRouter);
@@ -44,10 +48,6 @@ app.use('/login', loginRouter);
 app.use('/worksheets', worksheetsRouter);
 app.use('/workspace', workspaceRouter);
 app.use('/subjects', subjectsRouter);
-
-app.get('/tutorial', (req, res) => {
-  res.render('tutorial');
-});
 
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
