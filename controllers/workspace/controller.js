@@ -1,12 +1,10 @@
 const workspaceDb = require('../../models/workspace');
 
 function getUserWorksheets(req, res, next) {
-  console.log('hello');
   workspaceDb.getUserWorksheets(req.session.user.id)
   .then(data => {
     res.locals.worksheets = data;
     res.locals.id = req.params.id;
-    console.log(res.locals);
     next();
   })
   .catch(err => {
@@ -15,12 +13,9 @@ function getUserWorksheets(req, res, next) {
 }
 
 function getUserCards(req, res, next) {
-  console.log('bye');
-  console.log(req.session.user.id);
   workspaceDb.getUserCards(req.session.user.id)
   .then(data => {
     res.locals.cards = data;
-    console.log(data);
     next();
   })
   .catch(err => {
@@ -36,10 +31,8 @@ function getOptions(req, res, next) {
       req.params.id = 1;
     }
   }
-  console.log('get options');
   workspaceDb.getOptions(req.params.id)
   .then(data => {
-    console.log(data);
     res.locals.options = data;
     next();
   })
@@ -60,11 +53,8 @@ function getEditedOptions(req, res, next) {
 }
 
 function getDisplayedCard(req, res, next) {
-  console.log('get displayed card');
-  console.log(res.locals);
   workspaceDb.getDisplayedCard(req.params.id)
   .then(data => {
-    console.log(data);
     res.locals.card = data;
     next();
   })
@@ -183,8 +173,6 @@ function getUpdateOption(req, res, next) {
 
 function updateCard(req, res, next) {
   req.body.id = req.params.id;
-  console.log('update card');
-  console.log(req.body);
   workspaceDb.updateCard(req.body)
   .then(data => {
     res.locals.card = data;
@@ -197,8 +185,6 @@ function updateCard(req, res, next) {
 
 function updateOption(req, res, next) {
   req.body.card_id = req.params.id;
-  console.log('update option');
-  console.log(req.body);
   workspaceDb.updateOption(req.body)
   .then(data => {
     res.locals.option = data;
@@ -216,9 +202,7 @@ function isByUser(req, res, next) {
   }
   workspaceDb.isByUser(id)
   .then(data => {
-    console.log(data);
     res.locals.card = data;
-    console.log('inside');
     next();
   })
   .catch(err => {
