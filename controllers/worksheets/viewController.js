@@ -1,11 +1,12 @@
 function seeAllWorksheets(req, res) {
-  res.render('worksheets', {
+  console.log('see work');
+  res.render('worksheets/index', {
     worksheets: res.locals.worksheets
   });
 }
 
 function seeOneWorksheet(req, res) {
-  res.redirect('/worksheets');
+  res.redirect('/worksheets/');
 }
 
 module.exports = {

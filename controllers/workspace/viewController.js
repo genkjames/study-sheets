@@ -1,4 +1,5 @@
 function seeUserWorksheets(req, res) {
+  console.log('see user worksheets');
   res.render('workspace/index', {
     worksheets: res.locals.worksheets,
     cards: res.locals.cards,

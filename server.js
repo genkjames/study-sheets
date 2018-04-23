@@ -12,6 +12,7 @@ const registerRouter = require('./routes/registerRouter');
 const loginRouter = require('./routes/loginRouter');
 const worksheetsRouter = require('./routes/worksheetRouter');
 const workspaceRouter = require('./routes/workspaceRouter');
+const subjectsRouter = require('./routes/subjectsRouter');
 const ac = require('./controllers/auth/controller');
 
 const port = process.env.port || 3000;
@@ -42,13 +43,10 @@ app.use('/register', registerRouter);
 app.use('/login', loginRouter);
 app.use('/worksheets', worksheetsRouter);
 app.use('/workspace', workspaceRouter);
+app.use('/subjects', subjectsRouter);
 
 app.get('/tutorial', (req, res) => {
   res.render('tutorial');
-});
-
-app.get('/subjects', ac.isLoggedIn, (req, res) => {
-  res.render('subjects');
 });
 
 app.listen(port, () => {

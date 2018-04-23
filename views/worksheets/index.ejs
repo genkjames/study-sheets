@@ -1,0 +1,22 @@
+<% include ../partials/boilerplate %>
+<body class="worksheet-container">
+<% include ../partials/header %>
+<% include ../partials/logout %>
+<% include ../partials/headerend %>
+
+<main class="wrapper">
+  <% worksheets.forEach((worksheet) => { %>
+    <div class="worksheet">
+      <div><span class="ss">S</span><span class="ss">S</span></div>
+      <div>
+        <h2><%= worksheet.name %></h2>
+        <p><%= worksheet.subject %></p>
+        <form action="/worksheets/<%=worksheet.id%>" method="post">
+          <button class="awd-btn">Add to Workspace</button>
+        </form>
+      </div>
+    </div>
+  <% }) %>
+</main>
+
+<% include ../partials/end %>
