@@ -23,7 +23,8 @@ $(document).ready(function() {
 
   function nxtBtn() {
     const $nxt = $('#nxt');
-    $nxt.on('click', function() {
+    $nxt.on('click', function(e) {
+      e.preventDefault();
       if ($('#type').val() === '1') {
         $('.mc-container').toggleClass('hide');
       } else if ($('#type').val() === '2'){

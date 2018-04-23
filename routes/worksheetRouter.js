@@ -1,17 +1,20 @@
 const worksheetsRouter = require('express').Router();
 
-const worksheetsC = require('../controllers/worksheets/controller');
-const worksheetsVC = require('../controllers/worksheets/viewController');
-const workspaceC = require('../controllers/workspace/controller');
-const workspaceVC = require('../controllers/workspace/viewController');
+const wkc = require('../controllers/worksheets/controller');
+const wkvc = require('../controllers/worksheets/viewController');
+const wc = require('../controllers/workspace/controller');
+const wvc = require('../controllers/workspace/viewController');
 const ac = require('../controllers/auth/controller');
-const errorC = require('../controllers/errorController');
+const ec = require('../controllers/errorController');
 
 worksheetsRouter.route('/')
-  .get(ac.isLoggedIn, worksheetsC.getAllWorksheets, worksheetsVC.seeAllWorksheets, errorC.sendError)
+  .get(ac.isLoggedIn, wkc.getAllWorksheets, wkvc.seeAllWorksheets, ec.sendError)
+
+worksheetsRouter.route('/type/:id')
+  .get(ac.isLoggedIn, wkc.getSubjectWorksheets, wkvc.seeAllWorksheets, ec.sendError)
 
 worksheetsRouter.route('/:id')
-  .post(worksheetsC.addToUserWorksheet, worksheetsVC.seeOneWorksheet, errorC.sendError)
-  .delete(worksheetsC.deleteUserWorksheet, workspaceC.getUserWorksheets, workspaceVC.redirectWorkspace, errorC.sendError)
+  .post(wkc.addToUserWorksheet, wkvc.seeOneWorksheet, ec.sendError)
+  .delete(wkc.deleteUserWorksheet, wkc.deleteUserOptions, wkc.deleteUserCards, wc.getUserWorksheets, wvc.redirectWorkspace, ec.sendError)
 
 module.exports = worksheetsRouter;

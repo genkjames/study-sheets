@@ -4,8 +4,6 @@
   --darkYellow: #d5aa19;  /*rgb(213, 170, 25)*/
   --lightGreen: #9fc177;  /*rgb(159, 193, 119)*/
   --darkGreen: #81a65f;   /*rgb(129, 166, 95)*/
-  --darkRed: #a80000;     /*rgb(168, 0, 0)*/
-  --lightRed: rgb(168, 0, 0, 0.8);
   --dark: rgb(34, 34, 34);
 }
 
@@ -14,10 +12,13 @@
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
+  outline-color: var(--darkYellow);
 }
 
 body {
   font: 16px "Montserrat", sans-serif;
+  background: url('../img/bg.jpg') top center no-repeat;
+  background-size: cover;
 }
 
 a:active {
@@ -41,8 +42,6 @@ header .wrapper {
 
 header {
   line-height: 50px;
-  background: gold;
-  background: var(--offWhite);
   background: var(--dark);
 }
 
@@ -53,7 +52,6 @@ header a {
 header a:not(.logo) {
   font-size: 18px;
   letter-spacing: 1px;
-  color: #000;
   color: #fff;
   padding: 0 30px;
   border: 2px solid transparent;
@@ -66,7 +64,6 @@ header a:not(.logo):hover {
 }
 
 .logo, .capital {
-  color: black;
   color: #fff;
   font: 35px/50px "Gaegu", cursive;
   transition: .3s;
@@ -82,21 +79,9 @@ header a:not(.logo):hover {
 
 /*Navigation current page */
 
-.tutorial-container .tutorial-link {
-  color: var(--lightYellow);
-  border-bottom: 2px solid var(--offWhite);
-}
-
-.workspace-container .workspace-link {
-  color: var(--lightYellow);
-  border-bottom: 2px solid var(--offWhite);
-}
-
-.worksheet-container .worksheet-link {
-  color: var(--lightYellow);
-  border-bottom: 2px solid var(--offWhite);
-}
-
+.tutorial-container .tutorial-link,
+.workspace-container .workspace-link,
+.worksheet-container .worksheet-link,
 .subjects-container .subjects-link {
   color: var(--lightYellow);
   border-bottom: 2px solid var(--offWhite);
@@ -123,21 +108,19 @@ main.wrapper {
   cursor: pointer;
 }
 
-.signup-in {
+form.form {
   max-width: 500px;
   margin: 100px auto 0;
   border: 1px solid #000;
   padding: 50px 30px;
-}
-
-form.signup {
-  background: #fff;
-  max-width: inherit;
-  border-radius: 2px;
+  background: rgb(0, 0, 0, .7);
+  box-shadow: 1px 1px 15px #fff, 1px 1px 15px #fff;
+  color: #fff;
 }
 
 label {
   display: inline-block;
+  vertical-align: top;
   width: 29%;
   font-size: 20px;
 }
@@ -146,9 +129,53 @@ form div {
   margin-bottom: 20px;
 }
 
-input {
+.signup-in input {
   width: 69%;
   font-size: 22px;
+}
+
+input:not('[type="radio"]') {
+  width: 69%;
+  font-size: 22px;
+}
+
+textarea {
+  width: 69%;
+  height: 100px;
+  resize: none;
+  font-size: 19px;
+}
+
+select {
+  width: 70%;
+  height: 30px;
+  font-size: 16px;
+}
+
+[type="radio"] {
+  margin: 10px 0 0 29%;
+}
+
+[type="radio"] + label {
+  margin: 4px 0 0 5px;
+}
+
+[type="submit"],
+.nxt,
+.signup-in [type="submit"] {
+  display: block;
+  width: 200px;
+  margin: 50px auto 0;
+  padding: 10px;
+  font-size: 18px;
+  border: 1px solid var(--offWhite);
+  color: var(--offWhite);
+  background: var(--darkYellow);
+}
+
+[type="submit"]:hover,
+.nxt:hover {
+  background: var(--lightYellow);
 }
 
 .form-options {
@@ -164,10 +191,62 @@ input {
 
 /* Worksheets page */
 .worksheet {
-  margin: 20px 0 40px;
-  padding: 20px;
-  border-left: 5px solid var(--lightGreen);
-  border-bottom: 1px solid var(--darkGreen);
+  display: flex;
+  width: 90%;
+  min-height: 150px;
+  margin: 0 auto;
+  border-color: var(--lightGreen) var(--dark);
+  border-width: 1px 5px;
+  border-style: solid;
+  position: relative;
+  color: #fff;
+  background: rgba(0, 0, 0, .8);
+}
+
+.worksheet > * {
+  padding: 30px;
+}
+
+.worksheet > div:nth-of-type(1) {
+  width: 100px;
+  background: var(--dark);
+  font-size: 60px;
+  position: relative;
+}
+
+.worksheet .ss {
+  font-family: "Gaegu", cursive;
+  position: absolute;
+  color: var(--darkYellow);
+}
+
+.ss:nth-of-type(1) {
+  top: 0;
+  left: 15px;
+}
+
+.ss:nth-of-type(2) {
+  bottom: 0;
+  right: 20px;
+}
+
+.worksheet > div:nth-of-type(2) {
+  padding: 30px 30px 0 30px;
+}
+
+.worksheet button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: var(--darkGreen);
+  padding: 10px;
+  font-size: 15px;
+  color: var(--offWhite);
+  border: none;
+}
+
+.worksheet button:hover {
+  background: var(--lightGreen);
 }
 
 /* Workspace */
@@ -176,7 +255,6 @@ input {
   margin-top: 50px;
   height: 700px;
   display: flex;
-  border: 2px solid #000;
 }
 
 .workspace > div, .workspace-edit > div {
@@ -187,7 +265,7 @@ input {
 .workspace > div:nth-of-type(1),
 .workspace-edit > div:nth-of-type(1) {
   width: 250px;
-  background: var(--dark);
+  background: rgba(34, 34, 34, .9);
   color: #fff;
   overflow: scroll;
 }
@@ -211,8 +289,9 @@ input {
 /* Displayed Card */
 .workspace > div:nth-of-type(2) {
   width: calc(100% - 500px);
-  padding: 30px 20px 10px;
+  padding: 30px 30px 10px;
   overflow: scroll;
+  background: rgba(0, 0, 0, .4);
 }
 
 .bar {
@@ -230,19 +309,16 @@ input {
 
 .card-display {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 40px auto;
   padding: 50px 0 30px;
 }
 
 .card {
   width: 100%;
   margin-bottom: 30px;
-  background: rgba(246, 250, 230, .5);
-  border: 2px solid var(--dark);
+  background: rgba(246, 250, 230, .9);
   padding: 30px;
-  border-radius: 5px;
   font-size: 14px;
-  box-shadow: 1px 1px 5px var(--darkGreen), -1px 1px 10px var(--dark);
 }
 
 .question {
@@ -295,32 +371,30 @@ h1.option {
 }
 
 .wsp-link, .not-active {
-  border-radius: 8px;
   padding: 10px;
   font-weight: 600;
   letter-spacing: 2px;
 }
 
 .wsp-link {
-  border: 2px solid transparent;
-  border-radius: 8px;
   padding: 10px;
-  background: var(--darkYellow);
+  background: rgba(213, 170, 25, .7);
+  border: 1px solid white;
   color: #fff;
   font-weight: 600;
   letter-spacing: 2px;
   transition: .2s;
+  margin: 0 40px 0 0;
 }
 
 .wsp-link:hover {
-  border: 2px solid var(--darkYellow);
-  background: #fff;
-  color: var(--darkYellow);
+  background: rgb(213, 170, 25);
 }
 
 .not-active {
+  color: #fff;
   border: 2px solid transparent;
-  background: rgba(0, 0, 0, .5);
+  background: rgba(0, 0, 0, .8);
 }
 
 .not-active:active {
@@ -338,6 +412,7 @@ h1.option {
   height: 100%;
   font-size: 10px;
   background: var(--darkGreen);
+  background: rgba(129, 166, 95, .7);
   overflow: scroll;
 }
 
@@ -345,15 +420,14 @@ h1.option {
   margin: 20px 10px;
   padding: 10px;
   background: #fff;
-  border: 3px solid transparent;
+  border: 2px solid transparent;
   font-weight: 600;
   color: #000;
-  box-shadow: .5px 1px 5px var(--dark), -1px 1px 10px var(--dark);
   transition: .3s;
 }
 
 .card-link:hover {
-  border: 3px solid var(--dark);
+  border: 2px solid var(--dark);
 }
 
 .card-link .w-name {
@@ -362,7 +436,7 @@ h1.option {
 }
 
 .current {
-  border: 3px solid var(--dark);
+  border: 2px solid var(--dark);
 }
 
 .card-link::after {
@@ -373,7 +447,6 @@ h1.option {
   margin: 15px auto 5px;
   padding: 10px;
   background: rgba(34, 34, 34, .9);
-  box-shadow: 1px 1px 1px var(--darkGreen), -1px 1px 10px var(--darkGreen);
   text-align: center;
   border-radius: 50%;
   border: 1px solid #000;
@@ -386,6 +459,7 @@ h1.option {
   width: calc(100% - 250px);
   padding: 30px 20px 10px;
   overflow: scroll;
+  background: rgba(0, 0, 0, .4);
 }
 
 .worksheet-drop {
@@ -420,9 +494,7 @@ h1.option {
 }
 
 .card-edit {
-  border: 1px solid var(--dark);
-  border-radius: 2px;
-  box-shadow: 1px 1px 1px var(--darkGreen), -1px 1px 10px var(--darkGreen);
+  background: var(--offWhite);
   width: 30%;
   margin: 1.66%;
   padding: 20px;
