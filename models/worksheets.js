@@ -2,7 +2,7 @@ const db = require('../config/connection');
 
 function getAllWorksheets(id) {
   return db.any(`
-    SELECT w.name, w.id, s.subject, usw.user_id
+    SELECT DISTINCT w.name, w.id, s.subject, usw.user_id
     FROM worksheets w
     JOIN subjects s
     ON w.subject_id = s.id

@@ -1,9 +1,12 @@
 $(document).ready(function() {
+  console.log('hi');
   init();
 
   function init() {
     answerToggle();
     nxtBtn();
+    togglenavBar();
+    showHiddenNav();
   }
 
   function toggleHide(arr) {
@@ -35,5 +38,30 @@ $(document).ready(function() {
       $nxt.off('click');
       toggleHide([$('.part1'), $('.sbt'), $nxt]);
     });
+  }
+
+  function togglenavBar() {
+    const $hamburger = $('.hamburger');
+    const $nav = $('header nav');
+    $hamburger.on('click', function(e) {
+      if ($nav.css('display') === 'none') {
+        $nav.css('display', 'block');
+      } else {
+        $nav.css('display', 'none');
+      }
+      showHiddenNav();
+    })
+  }
+
+  function showHiddenNav() {
+    const $nav = $('header nav');
+    $(window).on('resize', function() {
+      if($(this).width() >= 1166) {
+        $nav.css('display', 'block');
+      }
+      else {
+        $nav.css('display', 'none');
+      }
+    })
   }
 });

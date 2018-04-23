@@ -17,7 +17,7 @@
 
 body {
   font: 16px "Montserrat", sans-serif;
-  background: url('../img/bg.jpg') top center no-repeat;
+  background: url('../img/bg.jpg') top center;
   background-size: cover;
 }
 
@@ -30,13 +30,12 @@ a:active {
 .wrapper {
   max-width: 2000px;
   margin: 0 auto;
-  /*padding: 0 30px;*/
 }
 
 header .wrapper {
-  padding: ;
   display: flex;
   justify-content: space-between;
+  /*padding: 0 20px;*/
 }
 
 /* Header */
@@ -44,6 +43,22 @@ header .wrapper {
 header {
   line-height: 50px;
   background: var(--dark);
+}
+
+.hamburger {
+  width: 30px;
+  border-radius: 2px;
+  border: 1px solid #fff;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  display: none;
+}
+
+.hamburger > div {
+  width: 70%;
+  margin: 5px auto;
+  border: 1px solid #fff;
 }
 
 header a {
@@ -68,6 +83,7 @@ header a:not(.logo):hover {
   color: #fff;
   font: 35px/50px "Gaegu", cursive;
   transition: .3s;
+  padding-left: 10px;
 }
 
 .capital {
@@ -76,6 +92,36 @@ header a:not(.logo):hover {
 
 .logo:hover .capital {
   color: var(--darkYellow);
+}
+
+nav {
+  position: static;
+}
+
+@media (max-width: 1166px) {
+  .hamburger {
+    display: block;
+  }
+
+  header .wrapper {
+    display: block;
+  }
+
+  header a {
+    display: block;
+  }
+
+  header a:not(.logo) {
+    text-align: center;
+  }
+
+  nav {
+    position: absolute;
+    width: 100%;
+    background: var(--dark);
+    display: none;
+    z-index: 2;
+  }
 }
 
 /*Navigation current page */
@@ -88,26 +134,88 @@ header a:not(.logo):hover {
   border-bottom: 2px solid var(--offWhite);
 }
 
-/* Main */
-
-main.wrapper {
-  /*padding: 50px 30px 0;*/
+/* Landing page */
+.tips-container {
+  width: 100%;
+  background: rgba(34, 34, 34, .8);
+  padding: 30px;
 }
 
-/* Landing page */
+.tipsntricks {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.tipsntricks h1 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 30px;
+  font-family: 'Gaegu', cursive;
+}
+
+.tips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .tips li {
+  width: 45%;
   list-style: none;
   margin-bottom: 20px;
+  color: white;
+  font-size: 20px;
+}
+
+@media (max-width: 721px) {
+  .tips li {
+    width: 100%;
+  }
 }
 
 .topic-stc {
-  color: var(--darkGreen);
-  font-weight: 600;
+  color: #00BF1D;
+  font-weight: 900;
+}
+
+.for-more, .for-more + p {
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+}
+
+.for-more {
+  margin-top: 50px;
+}
+
+.for-more + p {
+  margin: 10px 0 20px;
+}
+
+.for-more a {
+  color: var(--darkYellow);
+}
+
+.logins {
+  width: 300px;
+  margin: 40px auto;
 }
 
 .logins > * {
   cursor: pointer;
+  background: rgba(0, 0, 0, .5);
+  color: var(--lightYellow);
+  padding: 10px 20px;
+  border: 1px solid var(--darkYellow);
 }
+
+.logins > *:hover {
+  background: rgba(0, 0, 0);
+}
+
+/* Forms */
 
 form.form {
   max-width: 500px;
@@ -266,13 +374,14 @@ select {
 /* Workspace */
 .workspace,
 .workspace-edit {
-  /*padding-top: 50px;*/
   height: 800px;
   display: flex;
 }
 
 .greeting {
   color: #fff;
+  font-size: 20px;
+  text-align: right;
 }
 
 .workspace > div, .workspace-edit > div {
@@ -564,4 +673,45 @@ h1.option {
 
 .delete:hover {
   background: var(--lightRed);
+}
+
+@media (max-width: 1000px) {
+  .workspace {
+    display: block;
+    width: 100%;
+  }
+
+  .workspace > div:nth-of-type(1),
+  .workspace > div:nth-of-type(2) {
+    width: 100%;
+    height: auto;
+  }
+
+  .workspace > div:nth-of-type(3) {
+    width: 100%;
+    height: auto;
+    overflow-x: scroll;
+    white-space: nowrap;
+    padding-bottom: 40px;
+  }
+
+  .worksheet-name {
+    display: inline-block;
+    margin: 10px;
+  }
+
+  .card-link {
+    margin: 0px 20px;
+    width: 200px;
+    display: inline-block;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+  .wsp-link {
+    width: 200px;
+    text-align: center;
+    margin-top: 10px;
+    display: block;
+  }
 }
