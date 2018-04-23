@@ -28,12 +28,13 @@ a:active {
 /* Set size of window size */
 
 .wrapper {
-  max-width: 1350px;
+  max-width: 2000px;
   margin: 0 auto;
-  padding: 0 30px;
+  /*padding: 0 30px;*/
 }
 
 header .wrapper {
+  padding: ;
   display: flex;
   justify-content: space-between;
 }
@@ -90,7 +91,7 @@ header a:not(.logo):hover {
 /* Main */
 
 main.wrapper {
-  padding: 50px 30px 0;
+  /*padding: 50px 30px 0;*/
 }
 
 /* Landing page */
@@ -190,11 +191,19 @@ select {
 }
 
 /* Worksheets page */
-.worksheet {
+.worksheets {
+  padding: 50px 0;
   display: flex;
-  width: 90%;
+  flex-wrap: wrap;
+}
+
+.worksheet {
+  width: 48%;
+  margin: 10px 1%;
+  display: flex;
+  /*width: 90%;*/
   min-height: 150px;
-  margin: 0 auto;
+  /*margin: 0 auto;*/
   border-color: var(--lightGreen) var(--dark);
   border-width: 1px 5px;
   border-style: solid;
@@ -252,9 +261,13 @@ select {
 /* Workspace */
 .workspace,
 .workspace-edit {
-  margin-top: 50px;
-  height: 700px;
+  /*padding-top: 50px;*/
+  height: 800px;
   display: flex;
+}
+
+.greeting {
+  color: #fff;
 }
 
 .workspace > div, .workspace-edit > div {
