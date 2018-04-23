@@ -27,7 +27,8 @@ INSERT INTO worksheets
 VALUES
 ('Computer Fundamentals', 1),
 ('Operating Systems', 1),
-('Sentence Completion', 4);
+('Sentence Completion', 4),
+('Accounting Basics', 2);
 
 -- Cards
 INSERT INTO cards
@@ -62,7 +63,18 @@ VALUES
 ('We _______ start now to work for our examination.', 3),
 ('His boss _______ an explanation of his conduct with his colleagues.', 3),
 ('The artist had to _______ a lot before _______ recognized for his talent.', 3),
-('Rama took his _______ for the wrong done to him.', 3);
+('Rama took his _______ for the wrong done to him.', 3),
+('What is a general ledger account?', 4),
+('What is the difference between accounts payable and accounts receivable?', 4),
+('What are accruals?', 4),
+('What is the distinction between debtor and creditor?', 4),
+('What are examples of a general ledger acount?', 4),
+('What are examples of a general ledger liability account?', 4),
+('What is the cost of goods sold?', 4),
+('How do I calculate the amount of sales tax that is included in total receipts?', 4),
+('What is owner''s equity?', 4),
+('What is petty cash?', 4),
+('What is the cost of sales?', 4);
 
 -- Options
 INSERT INTO options
@@ -164,9 +176,26 @@ VALUES
 (30, 1, 'avenge', false),
 (30, 1, 'vengeance', false),
 (30, 1, 'revenge', true),
-(30, 1, 'ravage', false);
+(30, 1, 'ravage', false),
+(31, 2, 'A general ledger account is an account or record used to sort and store balance sheet and income statement transactions.', true),
+(32, 2, 'Accounts payable are amounts a company owes because it purchased goods or services on credit from a supplier or vendor. Accounts receivable are amounts a company has a right to collect because it sold goods or services on credit to a customer. Accounts payable are liabilities. Accounts receivable are assets.', true),
+(33, 2, 'Accruals are adjustments for 1)  revenues that have been earned but are not yet recorded in the accounts, and 2) expenses that have been incurred but are not yet recorded in the accounts.', true),
+(34, 2, 'A debtor is a person or enterprise that owes money to another party. A creditor is a person, bank, or other enterprise that has lent money or extended credit to another party.', true),
+(35, 2, 'Examples of general ledger accounts include the asset accounts such as Cash, Accounts Receivable, Inventory, Investments, Land, and Equipment.', true),
+(36, 2, 'Examples of the general ledger liability accounts include Notes Payable, Accounts Payable, Accrued Expenses Payable, and Customer Deposits.', true),
+(37, 2, 'The cost of goods sold is the cost of the merchandise that a retailer, distributor, or manufacturer has sold.', true),
+(38, 2, 'To calculate the sales tax that is included in a company''s receipts from items subject to sales tax, divide the receipts by 1 + the sales tax rate. For example, if the sales tax rate is 6%, divide the total amount of  receipts by 1.06. If the sales tax rate is 7.25%, divide the total receipts by 1.0725.', true),
+(39, 2, 'Owner''s equity is one of the three main components of a sole proprietorship''s balance sheet and accounting equation. Owner''s equity represents the owner''s investment in the business minus the owner''s draws or withdrawals from the business plus the net income (or minus the net loss) since the business began.', true),
+(40, 2, 'Petty cash is a small amount of cash on hand that is used for paying small amounts owed, rather than writing a check. Petty cash is also referred to as a petty cash fund.', true),
+(41, 2, 'The cost of sales for a manufacturer is the cost of finished goods in its beginning inventory plus the cost of goods manufactured minus the cost of finished goods in ending inventory. The cost of sales for a retailer is the cost of merchandise in its beginning inventory plus the net cost of merchandise purchased minus the cost of merchandise in its ending inventory.', true),
+(42, 1, '10', true),
+(42, 1, '16', false),
+(42, 1, '18', false),
+(42, 1, '36', false),
+(42, 1, '64', false);
 
 INSERT INTO users
 (username, email, password_digest)
 VALUES
-('gjames', 'g@m.co', '$2b$12$pTfh9Aol7LBLhSX29jXyPOhHw65VR.ovW/mkqqmuEtGoFiVMjnhIy');
+('gjames', 'g@m.co', '$2b$12$pTfh9Aol7LBLhSX29jXyPOhHw65VR.ovW/mkqqmuEtGoFiVMjnhIy'),
+('gkj', 'g@k.js', '$2b$12$sziEz.M4ASuQO52pGdcom.qUClle2xvjjD/UU9mBYFvAFto47n6IW');

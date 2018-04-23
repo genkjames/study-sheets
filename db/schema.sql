@@ -6,12 +6,14 @@ CREATE DATABASE study_db;
 \c study_db
 
 -- Tables
-DROP TABLE IF EXISTS worksheets;
-DROP TABLE IF EXISTS cards;
 DROP TABLE IF EXISTS subjects;
 DROP TABLE IF EXISTS types;
-DROP TABLE IF EXISTS options;
+DROP TABLE IF EXISTS worksheets;
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS userworksheets;
+DROP TABLE IF EXISTS cards;
+DROP TABLE IF EXISTS options;
+
 
 CREATE TABLE subjects (
   id SERIAL PRIMARY KEY,

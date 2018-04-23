@@ -15,7 +15,8 @@ function seeUserCard(req, res) {
       cards: res.locals.cards,
       id: res.locals.id,
       options: res.locals.options,
-      displayedCard: res.locals.card
+      displayedCard: res.locals.card,
+      uname: req.session.user.username
     })
   }
   else {
