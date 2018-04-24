@@ -5,12 +5,14 @@
 <% include ../partials/headerend %>
 
 <main class="wrapper">
-  <h1>Subjects</h1>
-  <% subjects.forEach((subject) => { %>
-    <div>
-      <a href="/worksheets/type/<%=subject.id%>"><%= subject.subject %></a>
-    </div>
-  <% }) %>
+  <div class="subjects">
+    <h1>Subjects</h1>
+    <% subjects.forEach((subject) => { %>
+      <div>
+        <a href="/worksheets/type/<%=subject.id%>"><%= subject.subject %></a>
+      </div>
+    <% }) %>
+  </div>
 </main>
 
 <% include ../partials/end %>

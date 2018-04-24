@@ -242,6 +242,28 @@ form div {
   font-size: 22px;
 }
 
+.rol {
+  text-align: center;
+}
+
+@media (max-width: 457px) {
+  label.not(.radio-true label) {
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .signup-in input {
+    width: 98%;
+    margin: 0 auto;
+  }
+}
+
+.rol a {
+  color: var(--lightYellow);
+}
+
 input:not('[type="radio"]') {
   width: 69%;
   font-size: 22px;
@@ -261,7 +283,7 @@ select {
 }
 
 [type="radio"] {
-  margin: 10px 0 0 29%;
+  margin: 10px 10px 0 29%;
 }
 
 [type="radio"] + label {
@@ -308,9 +330,7 @@ select {
   width: 48%;
   margin: 10px 1%;
   display: flex;
-  /*width: 90%;*/
   min-height: 150px;
-  /*margin: 0 auto;*/
   border-color: var(--lightGreen) var(--dark);
   border-width: 1px 5px;
   border-style: solid;
@@ -368,6 +388,23 @@ select {
 
 .worksheet .awd-btn:hover {
   background: var(--lightGreen);
+}
+
+@media (max-width: 1076px) {
+  .worksheets {
+    display: block;
+  }
+
+  .worksheet {
+    width: 90%;
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 487px) {
+  .worksheet {
+    width: 95%;
+  }
 }
 
 /* Workspace */
@@ -621,7 +658,7 @@ h1.option {
 
 .card-edit {
   background: var(--offWhite);
-  width: 30%;
+  width: 300px;
   margin: 1.66%;
   padding: 20px;
 }
@@ -674,14 +711,48 @@ h1.option {
   background: var(--lightRed);
 }
 
+.subjects {
+  max-width: 500px;
+  text-align: center;
+  margin: 80px auto;
+  padding: 30px;
+  background: rgb(0, 0, 0, .8);
+}
+
+.subjects h1 {
+  color: #fff;
+  font-size: 60px;
+  font-family: 'Gaegu', cursive;
+  margin-bottom: 10px;
+}
+
+.subjects a {
+  display: block;
+  color: #00BF1D;
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.subjects a:hover {
+  text-decoration: underline;
+}
+
+.radio-true {
+  display: flex;
+  align-content: middle;
+}
+
 @media (max-width: 1000px) {
-  .workspace {
+  .workspace,
+  .workspace-edit {
     display: block;
     width: 100%;
   }
 
   .workspace > div:nth-of-type(1),
-  .workspace > div:nth-of-type(2) {
+  .workspace > div:nth-of-type(2),
+  .workspace-edit > div:nth-of-type(1),
+  .workspace-edit > div:nth-of-type(2) {
     width: 100%;
     height: auto;
   }
@@ -699,6 +770,12 @@ h1.option {
     margin: 10px;
   }
 
+  .worksheet-drop {
+    width: 200px;
+    display: inline-block;
+    margin: 10px;
+  }
+
   .card-link {
     margin: 0px 20px;
     width: 200px;
@@ -707,10 +784,44 @@ h1.option {
     overflow-wrap: break-word;
   }
 
-  .wsp-link {
+  .edit-links {
     width: 200px;
     text-align: center;
     margin-top: 10px;
     display: block;
+  }
+}
+
+@media (max-width: 610px) {
+  .create-new-card [type="radio"] {
+    margin-top: 20px;
+  }
+
+  .radio-true label {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 504px) {
+  .create-new-card .part1 label {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .create-new-card select, .create-new-card textarea {
+    display: block;
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .subjects h1{
+    font-size: 40px;
+  }
+
+  .subjects a {
+    font-size: 17px;
   }
 }

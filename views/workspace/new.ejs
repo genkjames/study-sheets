@@ -6,7 +6,7 @@
 
 <main class="wrapper">
   <% if(worksheets.length > 0) { %>
-    <form class="form" method="post" action="/workspace">
+    <form class="form create-new-card" method="post" action="/workspace">
       <div class="part1">
         <div>
           <label for="wsheet">Worksheet Name</label>
@@ -37,32 +37,40 @@
           <label for="op1">Option 1</label>
           <textarea id="op1" name="options"></textarea>
 
-          <input type="radio" name="istrue_id" id="t" value="0" checked>
-          <label for="t">true</label>
+          <div class="radio-true">
+            <input type="radio" name="istrue_id" id="t" value="0" checked>
+            <label for="t">true</label>
+          </div>
         </div>
 
         <div>
           <label for="op2">Option 2</label>
           <textarea id="op2" name="options"></textarea>
 
-          <input type="radio" name="istrue_id" id="t" value="1">
-          <label for="t">true</label>
+          <div class="radio-true">
+            <input type="radio" name="istrue_id" id="t" value="1">
+            <label for="t">true</label>
+          </div>
         </div>
 
         <div>
           <label for="op3">Option 3</label>
           <textarea id="op3" name="options"></textarea>
 
-          <input type="radio" name="istrue_id" id="t" value="2">
-          <label for="t">true</label>
+          <div class="radio-true">
+            <input type="radio" name="istrue_id" id="t" value="2">
+            <label for="t">true</label>
+          </div>
         </div>
 
         <div>
           <label for="op4">Option 4</label>
           <textarea id="op4" name="options"></textarea>
 
-          <input type="radio" name="istrue_id" id="t" value="3">
-          <label for="t">true</label>
+          <div class="radio-true">
+            <input type="radio" name="istrue_id" id="t" value="3">
+            <label for="t">true</label>
+          </div>
         </div>
       </div>
 
