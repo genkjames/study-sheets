@@ -1,5 +1,3 @@
-\c study_db
-
 -- Categories
 
 INSERT INTO subjects

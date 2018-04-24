@@ -3,8 +3,6 @@ DROP DATABASE IF EXISTS study_db;
 
 CREATE DATABASE study_db;
 
-\c study_db
-
 -- Tables
 DROP TABLE IF EXISTS subjects;
 DROP TABLE IF EXISTS types;
