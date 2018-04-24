@@ -15,7 +15,7 @@ const workspaceRouter = require('./routes/workspaceRouter');
 const subjectsRouter = require('./routes/subjectsRouter');
 const ac = require('./controllers/auth/controller');
 
-const port = process.env.port || 3000;
+const port = process.env.PORT || 3000;
 
 const app = express();
 
