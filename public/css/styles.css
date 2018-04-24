@@ -98,7 +98,6 @@ nav {
 }
 
 /*Navigation current page */
-
 .workspace-container .workspace-link,
 .worksheet-container .worksheet-link,
 .subjects-container .subjects-link {
@@ -139,12 +138,6 @@ nav {
   margin-bottom: 20px;
   color: white;
   font-size: 20px;
-}
-
-@media (max-width: 721px) {
-  .tips li {
-    width: 100%;
-  }
 }
 
 .topic-stc {
@@ -788,6 +781,12 @@ h1.option {
     text-align: center;
     margin-top: 10px;
     display: block;
+  }
+}
+
+@media (max-width: 721px) {
+  .tips li {
+    width: 100%;
   }
 }
 
