@@ -6,6 +6,7 @@
 
 The purpose of this app is for users to be able to study efficiently on a specific subject they are having trouble with, or to brush up on old material. Users will have access to all default worksheets and the study cards in them. Once a worksheet is added to a user's workspace they will be able to create, delete and update the study cards in that particular worksheet.
 
+- Video Presentation: https://www.youtube.com/watch?v=TzUWSh5s7hI&feature=youtu.be
 - Site Example 1: https://quizlet.com/
 - Site Example 2: http://www.cram.com/
 
