@@ -21,6 +21,7 @@ function getOptions(id) {
   `, id);
 }
 
+// get option that is true for a card you can update
 function getEditedOptions(id) {
   return db.any(`
     SELECT o.card_id, o.type_id, o.option, o.istrue, t.type
@@ -139,6 +140,7 @@ function updateOption(option) {
   `, option);
 }
 
+// checks to see if a card was created by that user
 function isByUser(id) {
   return db.one(`
     SELECT * FROM cards

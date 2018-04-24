@@ -1,7 +1,9 @@
+//import node modules
 const bcrypt = require('bcrypt');
 
 const authdb = require('../../models/auth');
 
+// registers user into database
 function registerUser(req, res, next) {
   req.body.password_digest = bcrypt.hashSync(req.body.password, parseInt(process.env.SALT));
   authdb.registerUser(req.body)
@@ -14,6 +16,7 @@ function registerUser(req, res, next) {
   })
 }
 
+// finds if user is in database
 function findUser(req, res, next) {
   let user;
   authdb.findUser(req.body.username)
@@ -35,6 +38,7 @@ function findUser(req, res, next) {
   })
 }
 
+// checks to see if user is logged in
 function isLoggedIn(req, res, next) {
   if (req.session.user) {
     return next();
@@ -43,10 +47,12 @@ function isLoggedIn(req, res, next) {
   res.redirect('/login');
 }
 
+// Logs user out
 function logout(req, res, next) {
   req.session.destroy(err => next(err));
 }
 
+// checks to see if user is logged in to set text of header button
 function setStatus(req, res, next) {
   if (req.session.user) {
     res.locals.status = 'Log Out';

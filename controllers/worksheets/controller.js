@@ -1,3 +1,4 @@
+// import worksheets model
 const wkdb = require('../../models/worksheets');
 
 function getAllWorksheets(req, res, next) {
@@ -11,6 +12,7 @@ function getAllWorksheets(req, res, next) {
   })
 }
 
+// adds created Card to Worksheet
 function addToUserWorksheet(req, res, next) {
   const ids = {
     user_id: req.session.user.id,
@@ -26,6 +28,7 @@ function addToUserWorksheet(req, res, next) {
   })
 }
 
+// deletes worksheet from workspace
 function deleteUserWorksheet(req, res, next) {
   wkdb.deleteUserWorksheet(req.params.id)
   .then(data => {
@@ -67,6 +70,7 @@ function deleteUserCards(req, res, next) {
   })
 }
 
+// gets worksheet with specific subject
 function getSubjectWorksheets(req, res, next) {
   const ids = {
     user_id: req.session.user.id,

@@ -27,6 +27,7 @@ function deleteUserWorksheet(id) {
   `, id);
 }
 
+// once a users worksheet is dropped from workspace, the answers for the created are deleted
 function deleteUserOptions(options) {
   return db.any(`
     DELETE FROM options
@@ -39,6 +40,7 @@ function deleteUserOptions(options) {
   `, options);
 }
 
+// once a users worksheet is dropped from workspace, the cards they created are deleted
 function deleteUserCards(card) {
   return db.any(`
     DELETE FROM cards
@@ -48,6 +50,7 @@ function deleteUserCards(card) {
   `, card);
 }
 
+// get worksheets that have a certain subject
 function getSubjectWorksheets(subject) {
   return db.any(`
     SELECT w.name, w.id, s.subject, usw.user_id

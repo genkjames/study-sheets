@@ -1,5 +1,6 @@
 const db = require('../config/connection');
 
+// enters users info in database
 function registerUser(user) {
   return db.one(`
     INSERT INTO users (username, email, password_digest)
@@ -8,6 +9,7 @@ function registerUser(user) {
   `, user);
 }
 
+// sees if user is in database
 function findUser(uname) {
   return db.one(`
     SELECT * FROM users

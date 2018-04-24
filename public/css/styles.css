@@ -17,7 +17,7 @@
 
 body {
   font: 16px "Montserrat", sans-serif;
-  background: url('../img/bg.jpg') top center;
+  background: url('../img/bg.png') top center;
   background-size: cover;
 }
 
@@ -35,7 +35,6 @@ a:active {
 header .wrapper {
   display: flex;
   justify-content: space-between;
-  /*padding: 0 20px;*/
 }
 
 /* Header */
@@ -96,32 +95,6 @@ header a:not(.logo):hover {
 
 nav {
   position: static;
-}
-
-@media (max-width: 1166px) {
-  .hamburger {
-    display: block;
-  }
-
-  header .wrapper {
-    display: block;
-  }
-
-  header a {
-    display: block;
-  }
-
-  header a:not(.logo) {
-    text-align: center;
-  }
-
-  nav {
-    position: absolute;
-    width: 100%;
-    background: var(--dark);
-    display: none;
-    z-index: 2;
-  }
 }
 
 /*Navigation current page */
@@ -740,6 +713,32 @@ h1.option {
 .radio-true {
   display: flex;
   align-content: middle;
+}
+
+@media (max-width: 1166px) {
+  .hamburger {
+    display: block;
+  }
+
+  header .wrapper {
+    display: block;
+  }
+
+  header a {
+    display: block;
+  }
+
+  header a:not(.logo) {
+    text-align: center;
+  }
+
+  nav {
+    position: absolute;
+    width: 100%;
+    background: var(--dark);
+    display: none;
+    z-index: 2;
+  }
 }
 
 @media (max-width: 1000px) {

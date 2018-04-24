@@ -23,6 +23,7 @@ function getUserCards(req, res, next) {
   })
 }
 
+// gets options of displayed card in workspace
 function getOptions(req, res, next) {
   if (req.params.id === undefined) {
     if (res.locals.cards[0]) {
@@ -41,6 +42,7 @@ function getOptions(req, res, next) {
   });
 }
 
+// gets question and answer of card to update
 function getEditedOptions(req, res, next) {
   workspaceDb.getEditedOptions(req.session.user.id)
   .then(data => {
@@ -74,6 +76,7 @@ function getAllTypes(req, res, next) {
   })
 }
 
+// gets all cards created by user
 function getCreatedCards(req, res, next) {
   workspaceDb.getCreatedCards(req.session.user.id)
   .then(data => {
@@ -195,6 +198,7 @@ function updateOption(req, res, next) {
   })
 }
 
+// checks to see if card was created by user
 function isByUser(req, res, next) {
   const id = {
     user_id: req.session.user.id,

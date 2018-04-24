@@ -1,5 +1,6 @@
 const sdb = require('../../models/subjects');
 
+// gets all subjects
 function getSubjects(req, res, next) {
   sdb.getSubjects()
   .then(data => {
